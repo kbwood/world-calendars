@@ -223,6 +223,8 @@ abstract class BaseCalendar {
   protected readonly daysPerMonth: number[]
   // true if has a year zero, false if not.
   protected readonly hasYearZero: boolean
+  // The number of months in the year.
+  protected readonly monthsPerYear: number
   // The minimum month number.
   protected readonly minMonth: number
   // The first month in the year.
@@ -233,10 +235,11 @@ abstract class BaseCalendar {
   readonly local: CalendarLocalisation
 
   constructor (name: string, jdEpoch: number, local: CalendarLocalisation, daysPerMonth: number[],
-    hasYearZero: boolean = false, minMonth: number = 1, firstMonth: number = 1, minDay: number = 1) {
+    monthsPerYear: number = 12, hasYearZero: boolean = false, minMonth: number = 1, firstMonth: number = 1, minDay: number = 1) {
     this.name = name
     this.jdEpoch = jdEpoch
     this.daysPerMonth = daysPerMonth
+    this.monthsPerYear = monthsPerYear
     this.hasYearZero = hasYearZero
     this.minMonth = minMonth
     this.firstMonth = firstMonth
@@ -284,7 +287,7 @@ abstract class BaseCalendar {
     yearOrDate instanceof CDate
       ? this.validate('', yearOrDate)
       : this.validate(Calendars.local.invalidYear, yearOrDate, this.minMonth, this.minDay, { notDay: true, notMonth: true })
-    return 12
+    return this.monthsPerYear
   }
 
   // Calculate the month's ordinal position within the year - for those calendars that don't start at month 1!

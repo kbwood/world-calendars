@@ -65,11 +65,12 @@ declare abstract class BaseCalendar {
     protected readonly jdEpoch: number;
     protected readonly daysPerMonth: number[];
     protected readonly hasYearZero: boolean;
+    protected readonly monthsPerYear: number;
     protected readonly minMonth: number;
     protected readonly firstMonth: number;
     protected readonly minDay: number;
     readonly local: CalendarLocalisation;
-    constructor(name: string, jdEpoch: number, local: CalendarLocalisation, daysPerMonth: number[], hasYearZero?: boolean, minMonth?: number, firstMonth?: number, minDay?: number);
+    constructor(name: string, jdEpoch: number, local: CalendarLocalisation, daysPerMonth: number[], monthsPerYear?: number, hasYearZero?: boolean, minMonth?: number, firstMonth?: number, minDay?: number);
     date(date?: CDate): CDate;
     date(year: number, month: number, day: number): CDate;
     abstract leapYear(date: CDate): boolean;

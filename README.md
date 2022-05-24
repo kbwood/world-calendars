@@ -3,8 +3,11 @@
 This library implements various calendars used throughout the world.
 It allows manipulation of dates within those calendars.
 Calendars currently implemented are:
+* Coptic
+* Ethiopian
 * Gregorian
 * Julian
+* Nepali
 
 ## Usage
 
@@ -20,7 +23,7 @@ Import the library base code and a calendar implementation.
 
 ```
 import Calendars from 'kbwood/worldCalendars/Calendars'
-import from 'kbwood/worldCalendars/Gregorian'
+import 'kbwood/worldCalendars/Gregorian'
 ```
 
 Use the `Calendars` object to access the calendar implementations.
