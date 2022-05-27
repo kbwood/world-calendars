@@ -1,4 +1,4 @@
-import Calendars, { BaseCalendar, CDate } from '../src/Calendars'
+import Calendars, { BaseCalendar, CalendarError, CDate } from '../src/Calendars'
 import { GregorianCalendar } from '../src/Gregorian'
 import type { CalendarLocalisation } from '../src/Calendars'
 
@@ -8,7 +8,7 @@ describe('Calendars manager', () => {
   })
 
   it('should not create an unknown calendar', () => {
-    expect(() => { Calendars.instance('unknown') }).toThrow(/Calendar unknown not found/)
+    expect(() => { Calendars.instance('unknown') }).toThrow(new CalendarError('Calendar unknown not found'))
   })
 
   it('should create a new date', () => {
@@ -53,7 +53,7 @@ describe('Calendars manager', () => {
     expect(newCal.local).toEqual(defaultRegionalOptions)
     expect(Calendars.instance().local).not.toEqual(defaultRegionalOptions)
 
-    expect(() => { Calendars.register('new-cal', NewCal) }).toThrow(/Calendar already registered/)
+    expect(() => { Calendars.register('new-cal', NewCal) }).toThrow(new CalendarError('Calendar already registered: new-cal'))
   })
 
   describe('substituteDigits', () => {

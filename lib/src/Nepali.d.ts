@@ -7,8 +7,6 @@ declare class NepaliCalendar extends BaseCalendar {
     constructor(language?: string);
     leapYear(date: CDate): boolean;
     leapYear(year: number): boolean;
-    weekOfYear(date: CDate): number;
-    weekOfYear(year: number, month: number, day: number): number;
     daysInYear(yearOrDate: CDate | number): number;
     daysInMonth(date: CDate): number;
     daysInMonth(year: number, month: number): number;

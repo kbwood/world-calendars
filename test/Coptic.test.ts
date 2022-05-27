@@ -1,4 +1,4 @@
-import Calendars, { BaseCalendar, CDate } from '../src/Calendars'
+import Calendars, { BaseCalendar, CalendarError, CDate } from '../src/Calendars'
 import { CopticCalendar } from '../src/Coptic'
 
 describe('Coptic calendar', () => {
@@ -39,9 +39,9 @@ describe('Coptic calendar', () => {
   })
 
   it('should not create a new date when invalid', () => {
-    expect(() => { coptic.date(1724, 17, 55) }).toThrow(/Invalid/)
-    expect(() => { coptic.date(1724, 13, 6) }).toThrow(/Invalid/)
-    expect(() => { coptic.date(0, 2, 12) }).toThrow(/Invalid/)
+    expect(() => { coptic.date(1724, 17, 55) }).toThrow(new CalendarError('Invalid Coptic date'))
+    expect(() => { coptic.date(1724, 13, 6) }).toThrow(new CalendarError('Invalid Coptic date'))
+    expect(() => { coptic.date(0, 2, 12) }).toThrow(new CalendarError('Invalid Coptic date'))
   })
 
   it('should indicate leap years for a date', () => {

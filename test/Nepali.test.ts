@@ -1,4 +1,4 @@
-import Calendars, { BaseCalendar, CDate } from '../src/Calendars'
+import Calendars, { BaseCalendar, CalendarError, CDate } from '../src/Calendars'
 import { NepaliCalendar } from '../src/Nepali'
 
 describe('Nepali calendar', () => {
@@ -39,9 +39,9 @@ describe('Nepali calendar', () => {
   })
 
   it('should not create a new date when invalid', () => {
-    expect(() => { nepali.date(2070, 22, 52) }).toThrow(/Invalid/)
-    expect(() => { nepali.date(2070, 2, 32) }).toThrow(/Invalid/)
-    expect(() => { nepali.date(0, 2, 12) }).toThrow(/Invalid/)
+    expect(() => { nepali.date(2070, 22, 52) }).toThrow(new CalendarError('Invalid Nepali date'))
+    expect(() => { nepali.date(2070, 2, 32) }).toThrow(new CalendarError('Invalid Nepali date'))
+    expect(() => { nepali.date(0, 2, 12) }).toThrow(new CalendarError('Invalid Nepali date'))
   })
 
   it('should indicate leap years for a date', () => {

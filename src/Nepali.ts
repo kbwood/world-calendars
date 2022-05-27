@@ -191,18 +191,6 @@ class NepaliCalendar extends BaseCalendar {
     return this.daysInYear(y) !== NepaliCalendar.defaultDaysPerYear
   }
 
-  // Determine the week of the year for a date.
-  weekOfYear(date: CDate): number;
-  weekOfYear(year: number, month: number, day: number): number;
-  weekOfYear (yearOrDate: CDate | number, month?: number, day?: number): number {
-    // Find Sunday of this week starting on Sunday
-    let checkDate = yearOrDate instanceof CDate
-      ? this.date(yearOrDate)
-      : this.date(yearOrDate, month as number, day as number)
-    checkDate = checkDate.add(-checkDate.dayOfWeek(), 'd')
-    return Math.floor((checkDate.dayOfYear() - 1) / 7) + 1
-  }
-
   // Retrieve the number of days in a year.
   daysInYear (yearOrDate: CDate | number): number {
     const [y] = yearOrDate instanceof CDate
@@ -263,7 +251,7 @@ class NepaliCalendar extends BaseCalendar {
       gregorianDayOfYear = d
       m--
     }
-    // Now we loop throw all Nepali months and add the amount of days to gregorianDayOfYear
+    // Now we loop through all Nepali months and add the amount of days to gregorianDayOfYear
     // we do this till we reach Paush (9th month). 1st January always falls in this month.
     while (m !== 9) {
       if (m <= 0) {

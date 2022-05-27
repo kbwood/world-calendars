@@ -13,6 +13,9 @@ function pad (value: number, length: number): string {
   return `${'000000'.substring(0, length - strValue.length)}${strValue}`
 }
 
+class CalendarError extends Error {
+}
+
 // Generic date, based on a particular calendar.
 class CDate {
   private cal: BaseCalendar // eslint-disable-line no-use-before-define
@@ -27,15 +30,15 @@ class CDate {
     this.cal = calendar
     if (yearOrDate instanceof CDate) {
       if (this.cal.name !== yearOrDate.calendar().name) {
-        throw Calendars.local.differentCalendars
-          .replace(/\{0\}/, this.cal.local.name).replace(/\{1\}/, yearOrDate.calendar().local.name)
+        throw new CalendarError(Calendars.local.differentCalendars
+          .replace(/\{0\}/, this.cal.local.name).replace(/\{1\}/, yearOrDate.calendar().local.name))
       }
       this.yr = yearOrDate.yr
       this.mn = yearOrDate.mn
       this.dy = yearOrDate.dy
     } else {
       if (!this.cal.isValid(yearOrDate, month as number, day as number)) {
-        throw Calendars.local.invalidDate.replace(/\{0\}/, this.cal.local.name)
+        throw new CalendarError(Calendars.local.invalidDate.replace(/\{0\}/, this.cal.local.name))
       }
       this.yr = yearOrDate
       this.mn = month as number
@@ -152,8 +155,8 @@ class CDate {
   // Compare this date to another date.
   compareTo (date: CDate): CompareResult {
     if (this.cal.name !== date.cal.name) {
-      throw (Calendars.local.differentCalendars)
-        .replace(/\{0\}/, this.cal.local.name).replace(/\{1\}/, date.cal.local.name)
+      throw new CalendarError((Calendars.local.differentCalendars)
+        .replace(/\{0\}/, this.cal.local.name).replace(/\{1\}/, date.cal.local.name))
     }
     const c = (this.yr !== date.yr
       ? this.yr - date.yr
@@ -310,8 +313,16 @@ abstract class BaseCalendar {
   }
 
   // Retrieve the week of the year for this date.
-  abstract weekOfYear(date: CDate): number;
-  abstract weekOfYear(year: number, month: number, day: number): number;
+  weekOfYear(date: CDate): number;
+  weekOfYear(year: number, month: number, day: number): number;
+  weekOfYear (yearOrDate: CDate | number, month?: number, day?: number): number {
+    // Find "Sunday" of this week starting on "Sunday"
+    let checkDate = yearOrDate instanceof CDate
+      ? this.date(yearOrDate)
+      : this.date(yearOrDate, month as number, day as number)
+    checkDate = checkDate.add(-checkDate.dayOfWeek(), 'd')
+    return Math.floor((checkDate.dayOfYear() - 1) / 7) + 1
+  }
 
   // Retrieve the number of days in a year.
   daysInYear (yearOrDate: CDate | number): number {
@@ -422,7 +433,7 @@ abstract class BaseCalendar {
   }
 
   // Add period(s) to a date.
-  protected addInternal (date: CDate, offset: number, period: Period): CDate {
+  private addInternal (date: CDate, offset: number, period: Period): CDate {
     const correctYear = (yr: number): number => {
       if (yr === 0 && !this.hasYearZero) {
         yr += Math.sign(offset)
@@ -517,13 +528,13 @@ abstract class BaseCalendar {
   protected validate (error: string, yearOrDate: CDate | number, month?: number, day?: number, validOptions?: ValidOptions): DateParts {
     if (yearOrDate instanceof CDate) {
       if (this.name !== yearOrDate.calendar().name) {
-        throw Calendars.local.differentCalendars
-          .replace(/\{0\}/, this.local.name).replace(/\{1\}/, yearOrDate.calendar().local.name)
+        throw new CalendarError(Calendars.local.differentCalendars
+          .replace(/\{0\}/, this.local.name).replace(/\{1\}/, yearOrDate.calendar().local.name))
       }
       return [yearOrDate.year(), yearOrDate.month(), yearOrDate.day()]
     } else {
       if (!this.isValid(yearOrDate, month as number, day as number, validOptions as ValidOptions)) {
-        throw error.replace(/\{0\}/, this.local.name)
+        throw new CalendarError(error.replace(/\{0\}/, this.local.name))
       }
       return [yearOrDate, month as number, day as number]
     }
@@ -568,7 +579,7 @@ class Calendars {
       this.localCals[`${calName}-${language}`] = cal
     }
     if (!cal) {
-      throw Calendars.local.invalidCalendar.replace(/\{0\}/, name)
+      throw new CalendarError(Calendars.local.invalidCalendar.replace(/\{0\}/, name))
     }
     return cal
   }
@@ -619,5 +630,5 @@ class Calendars {
 }
 
 export type { CalendarLocalisation, CompareResult, Period, RegionalLocalisations, SubstituteDigits }
-export { BaseCalendar, CDate }
+export { BaseCalendar, CalendarError, CDate }
 export default Calendars

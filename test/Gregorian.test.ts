@@ -1,4 +1,4 @@
-import calendars, { BaseCalendar, CDate } from '../src/Calendars'
+import calendars, { BaseCalendar, CalendarError, CDate } from '../src/Calendars'
 import { GregorianCalendar } from '../src/Gregorian'
 import '../src/l10n/Gregorian-fr'
 
@@ -40,9 +40,9 @@ describe('Gregorian calendar', () => {
   })
 
   it('should not create a new date when invalid', () => {
-    expect(() => { gregorian.date(2021, 17, 55) }).toThrow(/Invalid/)
-    expect(() => { gregorian.date(2021, 2, 29) }).toThrow(/Invalid/)
-    expect(() => { gregorian.date(0, 2, 12) }).toThrow(/Invalid/)
+    expect(() => { gregorian.date(2021, 17, 55) }).toThrow(new CalendarError('Invalid Gregorian date'))
+    expect(() => { gregorian.date(2021, 2, 29) }).toThrow(new CalendarError('Invalid Gregorian date'))
+    expect(() => { gregorian.date(0, 2, 12) }).toThrow(new CalendarError('Invalid Gregorian date'))
   })
 
   it('should indicate leap years for a date', () => {

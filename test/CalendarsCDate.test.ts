@@ -1,4 +1,4 @@
-import calendars, { BaseCalendar, CDate } from '../src/Calendars'
+import calendars, { BaseCalendar, CalendarError, CDate } from '../src/Calendars'
 import '../src/Gregorian'
 
 describe('CDate', () => {
@@ -24,8 +24,8 @@ describe('CDate', () => {
   })
 
   it('should not construct an invalid date', () => {
-    expect(() => { new CDate(cal, 2022, 33, 44) }).toThrow(/Invalid/) // eslint-disable-line no-new
-    expect(() => { new CDate(cal, 2022, 2, 29) }).toThrow(/Invalid/) // eslint-disable-line no-new
+    expect(() => { new CDate(cal, 2022, 33, 44) }).toThrow(new CalendarError('Invalid Gregorian date')) // eslint-disable-line no-new
+    expect(() => { new CDate(cal, 2022, 2, 29) }).toThrow(new CalendarError('Invalid Gregorian date')) // eslint-disable-line no-new
   })
 
   it('should create a new date', () => {
@@ -38,8 +38,8 @@ describe('CDate', () => {
   })
 
   it('should not create an invalid date', () => {
-    expect(() => { d1.date(2022, 33, 44) }).toThrow(/Invalid/)
-    expect(() => { d1.date(2022, 2, 29) }).toThrow(/Invalid/)
+    expect(() => { d1.date(2022, 33, 44) }).toThrow(new CalendarError('Invalid Gregorian date'))
+    expect(() => { d1.date(2022, 2, 29) }).toThrow(new CalendarError('Invalid Gregorian date'))
   })
 
   it('should return its calendar', () => {

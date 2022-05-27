@@ -1,5 +1,7 @@
 declare type CompareResult = -1 | 0 | 1;
 declare type Period = 'd' | 'm' | 'w' | 'y';
+declare class CalendarError extends Error {
+}
 declare class CDate {
     private cal;
     private yr;
@@ -81,8 +83,8 @@ declare abstract class BaseCalendar {
     monthOfYear(date: CDate): number;
     monthOfYear(year: number, month: number): number;
     fromMonthOfYear(year: number, ord: number): number;
-    abstract weekOfYear(date: CDate): number;
-    abstract weekOfYear(year: number, month: number, day: number): number;
+    weekOfYear(date: CDate): number;
+    weekOfYear(year: number, month: number, day: number): number;
     daysInYear(yearOrDate: CDate | number): number;
     dayOfYear(date: CDate): number;
     dayOfYear(year: number, month: number, day: number): number;
@@ -105,7 +107,7 @@ declare abstract class BaseCalendar {
     toJSDate(date: CDate): Date;
     toJSDate(year: number, month: number, day: number): Date;
     fromJSDate(jsd: Date): CDate;
-    protected addInternal(date: CDate, offset: number, period: Period): CDate;
+    private addInternal;
     protected gregorianFromJD(jd: number): DateParts;
     protected gregorianFromJSDate(jsd: Date): DateParts;
     protected gregorianToJD([year, month, day]: DateParts): number;
@@ -134,5 +136,5 @@ declare class Calendars {
     static substituteChineseDigits(digits: string[], powers: string[]): SubstituteDigits;
 }
 export type { CalendarLocalisation, CompareResult, Period, RegionalLocalisations, SubstituteDigits };
-export { BaseCalendar, CDate };
+export { BaseCalendar, CalendarError, CDate };
 export default Calendars;

@@ -3,7 +3,7 @@
    See <a href="http://en.wikipedia.org/wiki/Coptic_calendar">http://en.wikipedia.org/wiki/Coptic_calendar</a>.
    See also Calendrical Calculations: The Millennium Edition
    (<a href="http://emr.cs.iit.edu/home/reingold/calendar-book/index.shtml">http://emr.cs.iit.edu/home/reingold/calendar-book/index.shtml</a>).
-   Written by Keith Wood (wood.keith{at}optusnet.com.au) April 2022.
+   Written by Keith Wood (wood.keith{at}optusnet.com.au) May 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 
@@ -45,18 +45,6 @@ class CopticCalendar extends BaseCalendar {
       : this.validate(Calendars.local.invalidYear, yearOrDate, this.minMonth, this.minDay)
     if (y < 0) { y++ }; // No year zero
     return y % 4 === 3 || y % 4 === -1
-  }
-
-  // Determine the week of the year for a date.
-  weekOfYear(date: CDate): number;
-  weekOfYear(year: number, month: number, day: number): number;
-  weekOfYear (yearOrDate: CDate | number, month?: number, day?: number): number {
-    // Find Sunday of this week starting on Sunday
-    let checkDate = yearOrDate instanceof CDate
-      ? this.date(yearOrDate)
-      : this.date(yearOrDate, month as number, day as number)
-    checkDate = checkDate.add(-checkDate.dayOfWeek(), 'd')
-    return Math.floor((checkDate.dayOfYear() - 1) / 7) + 1
   }
 
   // Retrieve the number of days in a month.

@@ -1,4 +1,4 @@
-import Calendars, { BaseCalendar, CDate } from '../src/Calendars'
+import Calendars, { BaseCalendar, CalendarError, CDate } from '../src/Calendars'
 import { JulianCalendar } from '../src/Julian'
 
 describe('Julian calendar', () => {
@@ -39,12 +39,12 @@ describe('Julian calendar', () => {
   })
 
   it('should not create a new date when invalid', () => {
-    expect(() => { julian.date(2021, 17, 55) }).toThrow(/Invalid/)
-    expect(() => { julian.date(2021, 2, 29) }).toThrow(/Invalid/)
-    expect(() => { julian.date(0, 2, 12) }).toThrow(/Invalid/)
+    expect(() => { julian.date(2021, 17, 55) }).toThrow(new CalendarError('Invalid Julian date'))
+    expect(() => { julian.date(2021, 2, 29) }).toThrow(new CalendarError('Invalid Julian date'))
+    expect(() => { julian.date(0, 2, 12) }).toThrow(new CalendarError('Invalid Julian date'))
   })
 
-  it('should indicate leap years for a Julian date', () => {
+  it('should indicate leap years for a date', () => {
     expect(julian.date(1900, 7, 1).leapYear()).toEqual(true)
     expect(julian.date(2000, 7, 1).leapYear()).toEqual(true)
     expect(julian.date(2020, 7, 1).leapYear()).toEqual(true)

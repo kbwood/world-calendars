@@ -44,18 +44,6 @@ class EthiopianCalendar extends BaseCalendar {
     return y % 4 === 3 || y % 4 === -1
   }
 
-  // Determine the week of the year for a date.
-  weekOfYear(date: CDate): number;
-  weekOfYear(year: number, month: number, day: number): number;
-  weekOfYear (yearOrDate: CDate | number, month?: number, day?: number): number {
-    // Find Sunday of this week starting on Sunday
-    let checkDate = yearOrDate instanceof CDate
-      ? this.date(yearOrDate)
-      : this.date(yearOrDate, month as number, day as number)
-    checkDate = checkDate.add(-checkDate.dayOfWeek(), 'd')
-    return Math.floor((checkDate.dayOfYear() - 1) / 7) + 1
-  }
-
   // Retrieve the number of days in a month.
   daysInMonth(date: CDate): number;
   daysInMonth(year: number, month: number): number;

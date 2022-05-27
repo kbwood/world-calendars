@@ -1,4 +1,4 @@
-import Calendars, { BaseCalendar, CDate } from '../src/Calendars'
+import Calendars, { BaseCalendar, CalendarError, CDate } from '../src/Calendars'
 import { EthiopianCalendar } from '../src/Ethiopian'
 
 describe('Ethiopian calendar', () => {
@@ -39,9 +39,9 @@ describe('Ethiopian calendar', () => {
   })
 
   it('should not create a new date when invalid', () => {
-    expect(() => { ethiopian.date(2014, 17, 55) }).toThrow(/Invalid/)
-    expect(() => { ethiopian.date(2014, 13, 6) }).toThrow(/Invalid/)
-    expect(() => { ethiopian.date(0, 2, 12) }).toThrow(/Invalid/)
+    expect(() => { ethiopian.date(2014, 17, 55) }).toThrow(new CalendarError('Invalid Ethiopian date'))
+    expect(() => { ethiopian.date(2014, 13, 6) }).toThrow(new CalendarError('Invalid Ethiopian date'))
+    expect(() => { ethiopian.date(0, 2, 12) }).toThrow(new CalendarError('Invalid Ethiopian date'))
   })
 
   it('should indicate leap years for a date', () => {
