@@ -1,6 +1,6 @@
 {
   "name": "worldCalendars",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Implementations of calendars from around the world",
   "main": "index.js",
   "scripts": {

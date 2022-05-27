@@ -6,7 +6,9 @@ Calendars currently implemented are:
 * Coptic
 * Ethiopian
 * Gregorian
+* Hebrew
 * Julian
+* Mayan
 * Nepali
 
 ## Usage
