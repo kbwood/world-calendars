@@ -321,7 +321,7 @@ abstract class BaseCalendar {
       ? this.date(yearOrDate)
       : this.date(yearOrDate, month as number, day as number)
     checkDate = checkDate.add(-checkDate.dayOfWeek(), 'd')
-    return Math.floor((checkDate.dayOfYear() - 1) / 7) + 1
+    return Math.floor((checkDate.dayOfYear() - 1) / this.daysInWeek()) + 1
   }
 
   // Retrieve the number of days in a year.
@@ -629,6 +629,6 @@ class Calendars {
   }
 }
 
-export type { CalendarLocalisation, CompareResult, Period, RegionalLocalisations, SubstituteDigits }
+export type { CalendarLocalisation, CompareResult, DateParts, Period, RegionalLocalisations, SubstituteDigits, ValidOptions }
 export { BaseCalendar, CalendarError, CDate }
 export default Calendars

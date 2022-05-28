@@ -7,9 +7,12 @@ Calendars currently implemented are:
 * Ethiopian
 * Gregorian
 * Hebrew
+* Islamic
 * Julian
 * Mayan
 * Nepali
+* Persian
+* Umm al-Qura
 
 ## Usage
 

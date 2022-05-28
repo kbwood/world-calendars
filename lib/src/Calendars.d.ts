@@ -135,6 +135,6 @@ declare class Calendars {
     static substituteDigits(digits: string[]): SubstituteDigits;
     static substituteChineseDigits(digits: string[], powers: string[]): SubstituteDigits;
 }
-export type { CalendarLocalisation, CompareResult, Period, RegionalLocalisations, SubstituteDigits };
+export type { CalendarLocalisation, CompareResult, DateParts, Period, RegionalLocalisations, SubstituteDigits, ValidOptions };
 export { BaseCalendar, CalendarError, CDate };
 export default Calendars;
