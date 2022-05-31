@@ -4,14 +4,18 @@ This library implements various calendars used throughout the world.
 It allows manipulation of dates within those calendars.
 Calendars currently implemented are:
 * Coptic
+* Discworld
 * Ethiopian
 * Gregorian
 * Hebrew
 * Islamic
 * Julian
 * Mayan
+* Nanakshahi
 * Nepali
 * Persian
+* Taiwan
+* Thai
 * Umm al-Qura
 
 ## Usage
