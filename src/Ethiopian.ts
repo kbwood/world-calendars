@@ -1,5 +1,8 @@
 /* http://keith-wood.name/worldCalendars.html
    Implementation of the Ethiopian calendar.
+   See http://en.wikipedia.org/wiki/Ethiopian_calendar.
+   See also Calendrical Calculations: The Millennium Edition
+   (http://emr.cs.iit.edu/home/reingold/calendar-book/index.shtml).
    Written by Keith Wood (wood.keith{at}optusnet.com.au) May 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
@@ -29,6 +32,7 @@ class EthiopianCalendar extends BaseCalendar {
   static localisations: RegionalLocalisations = { '': defaultLocalisation }
 
   constructor (language: string = '') {
+    // Julian date of start of Ethiopian epoch: 27 August 8 CE (Gregorian).
     super('Ethiopian', 1724220.5, EthiopianCalendar.localisations[language] || EthiopianCalendar.localisations[''],
       [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 5], 13)
   }

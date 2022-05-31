@@ -1,7 +1,7 @@
 /* http://keith-wood.name/worldCalendars.html
    Implementation of the Persian or Jalali calendar.
-   Based on code from <a href="http://www.iranchamber.com/calendar/converter/iranian_calendar_converter.php">http://www.iranchamber.com/calendar/converter/iranian_calendar_converter.php</a>.
-   See also <a href="http://en.wikipedia.org/wiki/Iranian_calendar">http://en.wikipedia.org/wiki/Iranian_calendar</a>.
+   Based on code from http://www.iranchamber.com/calendar/converter/iranian_calendar_converter.php.
+   See also http://en.wikipedia.org/wiki/Iranian_calendar.
    Written by Keith Wood (wood.keith{at}optusnet.com.au) April 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
@@ -33,6 +33,7 @@ class PersianCalendar extends BaseCalendar {
   static localisations: RegionalLocalisations = { '': defaultLocalisation }
 
   constructor (language: string = '') {
+    // Julian date of start of Persian epoch: 19 March 622 CE (Gregorian).
     super('Persian', 1948320.5, PersianCalendar.localisations[language] || PersianCalendar.localisations[''],
       [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29])
   }

@@ -1,8 +1,8 @@
 /* http://keith-wood.name/worldCalendars.html
    Implementation of the UmmAlQura or 'saudi' calendar.
-   See also <a href="http://en.wikipedia.org/wiki/Islamic_calendar#Saudi_Arabia.27s_Umm_al-Qura_calendar">http://en.wikipedia.org/wiki/Islamic_calendar#Saudi_Arabia.27s_Umm_al-Qura_calendar</a>.
-   <a href="http://www.ummulqura.org.sa/About.aspx">http://www.ummulqura.org.sa/About.aspx</a>
-   <a href="http://www.staff.science.uu.nl/~gent0113/islam/ummalqura.htm">http://www.staff.science.uu.nl/~gent0113/islam/ummalqura.htm</a>
+   See also http://en.wikipedia.org/wiki/Islamic_calendar#Saudi_Arabia.27s_Umm_al-Qura_calendar,
+   http://www.ummulqura.org.sa/About.aspx,
+   http://www.staff.science.uu.nl/~gent0113/islam/ummalqura.htm.
    Written by Keith Wood (wood.keith{at}optusnet.com.au) May 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
@@ -188,6 +188,7 @@ class UmmAlQuraCalendar extends BaseCalendar {
   static localisations: RegionalLocalisations = { '': defaultLocalisation }
 
   constructor (language: string = '') {
+    // Julian date of start of Umm al-Qura epoch: 14 March 1937 CE (Gregorian).
     super('UmmAlQura', 1948440.5, UmmAlQuraCalendar.localisations[language] || UmmAlQuraCalendar.localisations[''],
       [])
   }

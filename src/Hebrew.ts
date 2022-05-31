@@ -1,7 +1,7 @@
 /* http://keith-wood.name/worldCalendars.html
    Implementation of the Hebrew civil calendar.
-   Based on code from <a href="http://www.fourmilab.ch/documents/calendar/">http://www.fourmilab.ch/documents/calendar/</a>.
-   See also <a href="http://en.wikipedia.org/wiki/Hebrew_calendar">http://en.wikipedia.org/wiki/Hebrew_calendar</a>.
+   Based on code from http://www.fourmilab.ch/documents/calendar/.
+   See also http://en.wikipedia.org/wiki/Hebrew_calendar.
    Written by Keith Wood (wood.keith{at}optusnet.com.au) May 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
@@ -33,6 +33,7 @@ class HebrewCalendar extends BaseCalendar {
   static localisations: RegionalLocalisations = { '': defaultLocalisation }
 
   constructor (language: string = '') {
+    // Julian date of start of Hebrew epoch: 7 October 3761 BCE (Gregorian).
     super('Hebrew', 347995.5, HebrewCalendar.localisations[language] || HebrewCalendar.localisations[''],
       [30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 29], 12, false, 1, 7, 1)
   }

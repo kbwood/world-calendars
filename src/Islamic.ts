@@ -1,7 +1,7 @@
 /* http://keith-wood.name/worldCalendars.html
    Implementation of the Islamic or '16 civil' calendar.
-   Based on code from <a href="http://www.iranchamber.com/calendar/converter/iranian_calendar_converter.php">http://www.iranchamber.com/calendar/converter/iranian_calendar_converter.php</a>.
-   See also <a href="http://en.wikipedia.org/wiki/Islamic_calendar">http://en.wikipedia.org/wiki/Islamic_calendar</a>.
+   Based on code from http://www.iranchamber.com/calendar/converter/iranian_calendar_converter.php.
+   See also http://en.wikipedia.org/wiki/Islamic_calendar.
    Written by Keith Wood (wood.keith{at}optusnet.com.au) May 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
@@ -31,6 +31,7 @@ class IslamicCalendar extends BaseCalendar {
   static localisations: RegionalLocalisations = { '': defaultLocalisation }
 
   constructor (language: string = '') {
+    // Julian date of start of Islamic epoch: 16 July 622 CE (Gregorian).
     super('Islamic', 1948439.5, IslamicCalendar.localisations[language] || IslamicCalendar.localisations[''],
       [30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29])
   }

@@ -1,8 +1,8 @@
 /* http://keith-wood.name/worldCalendars.html
    Implementation of the Coptic calendar.
-   See <a href="http://en.wikipedia.org/wiki/Coptic_calendar">http://en.wikipedia.org/wiki/Coptic_calendar</a>.
+   See http://en.wikipedia.org/wiki/Coptic_calendar.
    See also Calendrical Calculations: The Millennium Edition
-   (<a href="http://emr.cs.iit.edu/home/reingold/calendar-book/index.shtml">http://emr.cs.iit.edu/home/reingold/calendar-book/index.shtml</a>).
+   (http://emr.cs.iit.edu/home/reingold/calendar-book/index.shtml).
    Written by Keith Wood (wood.keith{at}optusnet.com.au) May 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
@@ -32,6 +32,7 @@ class CopticCalendar extends BaseCalendar {
   static localisations: RegionalLocalisations = { '': defaultLocalisation }
 
   constructor (language: string = '') {
+    // Julian date of start of Coptic epoch: 29 August 284 CE (Gregorian).
     super('Coptic', 1825029.5, CopticCalendar.localisations[language] || CopticCalendar.localisations[''],
       [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 5], 13)
   }

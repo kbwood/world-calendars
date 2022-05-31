@@ -3,6 +3,7 @@ import './Gregorian';
 import type { RegionalLocalisations } from './Calendars';
 declare class NepaliCalendar extends BaseCalendar {
     static localisations: RegionalLocalisations;
+    static gregorian: BaseCalendar;
     static defaultDaysPerYear: number;
     constructor(language?: string);
     leapYear(date: CDate): boolean;

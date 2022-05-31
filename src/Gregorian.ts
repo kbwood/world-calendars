@@ -30,6 +30,7 @@ class GregorianCalendar extends BaseCalendar {
   static localisations: RegionalLocalisations = { '': defaultLocalisation }
 
   constructor (language: string = '') {
+    // Julian date of start of Gregorian epoch: 1 January 0001 CE (Gregorian).
     super('Gregorian', 1721425.5, GregorianCalendar.localisations[language] || GregorianCalendar.localisations[''],
       [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31])
   }

@@ -1,6 +1,6 @@
 /* http://keith-wood.name/worldCalendars.html
    Implementation of the Nanakshahi calendar.
-   See also <a href="https://en.wikipedia.org/wiki/Nanakshahi_calendar">https://en.wikipedia.org/wiki/Nanakshahi_calendar</a>.
+   See also https://en.wikipedia.org/wiki/Nanakshahi_calendar.
    Written by Keith Wood (wood.keith{at}optusnet.com.au) May 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
@@ -31,7 +31,7 @@ class NanakshahiCalendar extends BaseCalendar {
   static gregorian: BaseCalendar = Calendars.instance('gregorian')
 
   constructor (language: string = '') {
-    // Julian date of start of Nanakshahi epoch: 14 March 1469 CE.
+    // Julian date of start of Nanakshahi epoch: 14 March 1469 CE (Gregorian).
     super('Nanakshahi', 2257673.5, NanakshahiCalendar.localisations[language] || NanakshahiCalendar.localisations[''],
       [31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 30, 30])
   }

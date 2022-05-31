@@ -1,6 +1,6 @@
 /* http://keith-wood.name/worldCalendars.html
    Implementation of the Mayan Long Count calendar.
-   See also <a href="http://en.wikipedia.org/wiki/Mayan_calendar">http://en.wikipedia.org/wiki/Mayan_calendar</a>.
+   See also http://en.wikipedia.org/wiki/Mayan_calendar.
    Written by Keith Wood (wood.keith{at}optusnet.com.au) May 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
@@ -44,6 +44,7 @@ class MayanCalendar extends BaseCalendar {
   static localisations: RegionalLocalisations = { '': defaultLocalisation }
 
   constructor (language: string = '') {
+    // Julian date of start of Mayan epoch: 11 August 3114 BCE (Gregorian).
     super('Mayan', 584282.5, MayanCalendar.localisations[language] || MayanCalendar.localisations[''],
       [], 18, true, 0, 0, 0)
   }

@@ -1,11 +1,11 @@
 /* http://keith-wood.name/worldCalendars.html
    Implementation of the Nepali civil calendar.
    Written by Artur Neumann (ict.projects{at}nepal.inf.org) April 2013.
-     Based on the ideas from
-     <a href="http://codeissue.com/articles/a04e050dea7468f/algorithm-to-convert-english-date-to-nepali-date-using-c-net">http://codeissue.com/articles/a04e050dea7468f/algorithm-to-convert-english-date-to-nepali-date-using-c-net</a>
-     and <a href="http://birenj2ee.blogspot.com/2011/04/nepali-calendar-in-java.html">http://birenj2ee.blogspot.com/2011/04/nepali-calendar-in-java.html</a>
-     See also <a href="http://en.wikipedia.org/wiki/Nepali_calendar">http://en.wikipedia.org/wiki/Nepali_calendar</a>
-     and <a href="https://en.wikipedia.org/wiki/Bikram_Samwat">https://en.wikipedia.org/wiki/Bikram_Samwat</a>.
+   Based on the ideas from
+   http://codeissue.com/articles/a04e050dea7468f/algorithm-to-convert-english-date-to-nepali-date-using-c-net
+   and http://birenj2ee.blogspot.com/2011/04/nepali-calendar-in-java.html.
+   See also http://en.wikipedia.org/wiki/Nepali_calendar
+   and https://en.wikipedia.org/wiki/Bikram_Samwat.
    Converted by Keith Wood (wood.keith{at}optusnet.com.au) May 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
@@ -174,9 +174,11 @@ class NepaliCalendar extends BaseCalendar {
   // Localisations for the plugin.
   // Entries are objects indexed by the language code ('' being the default US/English). */
   static localisations: RegionalLocalisations = { '': defaultLocalisation }
+  static gregorian: BaseCalendar = Calendars.instance('gregorian')
   static defaultDaysPerYear = 365
 
   constructor (language: string = '') {
+    // Julian date of start of Nepali epoch: 14 April 57 BCE (Gregorian).
     super('Nepali', 1700709.5, NepaliCalendar.localisations[language] || NepaliCalendar.localisations[''],
       [31, 31, 32, 32, 31, 30, 30, 29, 30, 29, 30, 30])
   }
@@ -237,7 +239,6 @@ class NepaliCalendar extends BaseCalendar {
       : this.validate(Calendars.local.invalidDate, yearOrDate, month as number, day as number)
     const nepaliMonth = m
     this.createMissingCalendarData(y)
-    const gregorianCalendar = Calendars.instance('gregorian')
     // We will add all the days that went by since the 1st January and then we can get the Gregorian Date
     let gregorianDayOfYear = 0
     // Get the correct year
@@ -270,18 +271,17 @@ class NepaliCalendar extends BaseCalendar {
       // because in the end of the Gregorian year we substract
       // 365 / 366 days (P.S. remember math in school + - gives -)
       if (gregorianDayOfYear < 0) {
-        gregorianDayOfYear += gregorianCalendar.daysInYear(gregorianYear)
+        gregorianDayOfYear += NepaliCalendar.gregorian.daysInYear(gregorianYear)
       }
     } else {
       gregorianDayOfYear += NEPALI_CALENDAR_DATA[y][9] - NEPALI_CALENDAR_DATA[y][0]
     }
-    return gregorianCalendar.date(gregorianYear, 1, 1).add(gregorianDayOfYear, 'd').toJD()
+    return NepaliCalendar.gregorian.date(gregorianYear, 1, 1).add(gregorianDayOfYear, 'd').toJD()
   }
 
   // Create a new date from a Julian day number.
   fromJD (jd: number): CDate {
-    const gregorianCalendar = Calendars.instance('gregorian')
-    const gregorianDate = gregorianCalendar.fromJD(jd)
+    const gregorianDate = NepaliCalendar.gregorian.fromJD(jd)
     const gregorianYear = gregorianDate.year()
     const gregorianDayOfYear = gregorianDate.dayOfYear()
     let nepaliYear = gregorianYear + 56 // this is not final, it could be also +57 but +56 is always true for 1st Jan.
