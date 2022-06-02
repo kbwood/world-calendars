@@ -1,5 +1,5 @@
 /* http://keith-wood.name/worldCalendars.html
-   Arabic localisation for UmmAlQura calendar for jQuery v2.0.2.
+   Arabic localisation for UmmAlQura calendar.
    Written by Amro Osama March 2013.
    Updated by Fahad Alqahtani April 2016. */
 
