@@ -1,6 +1,6 @@
 {
   "name": "worldCalendars",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Implementations of calendars from around the world",
   "main": "index.js",
   "scripts": {
@@ -10,8 +10,8 @@
     "build:js:watch": "npm run build:js -- --watch",
     "build:types": "tsc --emitDeclarationOnly",
     "coverage": "jest --coverage",
-    "format": "npx eslint src/*.ts test/*.ts --fix",
-    "lint": "npx eslint src/*.ts test/*.ts",
+    "format": "npx eslint src/**/*.ts test/**/*.ts --fix",
+    "lint": "npx eslint src/**/*.ts test/**/*.ts",
     "prestart": "npm run build",
     "start": "node server.js",
     "test": "jest --config jest.config.js",
