@@ -192,7 +192,7 @@ class CDate {
   }
 }
 
-type SubstituteDigits = (value: number) => string;
+type SubstituteDigits = (value: string) => string;
 type CalendarLocalisation = {
   dateFormat: string,
   dayNames: string[],
@@ -606,20 +606,19 @@ class Calendars {
 
   // A simple digit substitution function for localising numbers via the Calendar digits option.
   static substituteDigits (digits: string[]): SubstituteDigits {
-    return (value: number): string =>
-      `${value}`.replace(/[0-9]/g, (digit: string): string => digits[Number(digit)])
+    return (value: string): string =>
+      value.replace(/[0-9]/g, (digit: string): string => digits[Number(digit)])
   }
 
   // Digit substitution function for localising Chinese style numbers via the Calendar digits option.
   static substituteChineseDigits (digits: string[], powers: string[]): SubstituteDigits {
-    return (value: number): string => {
+    return (value: string): string => {
       let localNumber = ''
       let power = 0
-      while (value > 0) {
-        const units = value % 10
+      for (let i = value.length - 1; i >= 0; i -= 1) {
+        const units = parseInt(value[i], 10)
         localNumber = `${units === 0 ? '' : `${digits[units]}${powers[power]}`}${localNumber}`
         power++
-        value = Math.floor(value / 10)
       }
       if (localNumber.indexOf(digits[1] + powers[1]) === 0) {
         localNumber = localNumber.substr(1)

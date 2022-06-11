@@ -61,8 +61,8 @@ describe('Calendars manager', () => {
       const alphaSub = Calendars.substituteDigits('ADEFHINPRT'.split(''))
       const gujaratiSub = Calendars.substituteDigits(['૦', '૧', '૨', '૩', '૪', '૫', '૬', '૭', '૮', '૯'])
 
-      expect(alphaSub(7094356128)).toEqual('PATHFINDER')
-      expect(gujaratiSub(7094356128)).toEqual('૭૦૯૪૩૫૬૧૨૮')
+      expect(alphaSub('7094356128')).toEqual('PATHFINDER')
+      expect(gujaratiSub('7094356128')).toEqual('૭૦૯૪૩૫૬૧૨૮')
     })
   })
 
@@ -71,12 +71,12 @@ describe('Calendars manager', () => {
       const chinaSub = Calendars.substituteChineseDigits(
         ['〇', '一', '二', '三', '四', '五', '六', '七', '八', '九'], ['', '十', '百', '千'])
 
-      expect(chinaSub(0)).toEqual('〇')
-      expect(chinaSub(5)).toEqual('五')
-      expect(chinaSub(17)).toEqual('十七')
-      expect(chinaSub(28)).toEqual('二十八')
-      expect(chinaSub(1234)).toEqual('一千二百三十四')
-      expect(chinaSub(2006)).toEqual('二千六')
+      expect(chinaSub('0')).toEqual('〇')
+      expect(chinaSub('5')).toEqual('五')
+      expect(chinaSub('17')).toEqual('十七')
+      expect(chinaSub('28')).toEqual('二十八')
+      expect(chinaSub('1234')).toEqual('一千二百三十四')
+      expect(chinaSub('2006')).toEqual('二千六')
     })
   })
 })
