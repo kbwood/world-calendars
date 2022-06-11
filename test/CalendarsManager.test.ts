@@ -1,4 +1,4 @@
-import Calendars, { BaseCalendar, CalendarError, CDate } from '../src/Calendars'
+import Calendars, { CalendarBase, CalendarError, CDate } from '../src/Calendars'
 import { GregorianCalendar } from '../src/Gregorian'
 import type { CalendarLocalisation } from '../src/Calendars'
 
@@ -37,7 +37,7 @@ describe('Calendars manager', () => {
       firstDay: 0,
       isRTL: false
     }
-    class NewCal extends BaseCalendar {
+    class NewCal extends CalendarBase {
       constructor () { super('new-cal', 1720000.5, defaultRegionalOptions, [30]) }
       daysInMonth (): number { return 30 }
       fromJD (): CDate { return new CDate(this, 1, 1, 1) }

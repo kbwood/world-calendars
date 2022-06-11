@@ -7,7 +7,7 @@
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 
-import Calendars, { BaseCalendar, CalendarError, CDate } from './Calendars'
+import Calendars, { CalendarBase, CalendarError, CDate } from './Calendars'
 import type { CalendarLocalisation, DateParts, RegionalLocalisations, ValidOptions } from './Calendars'
 
 const UMM_AL_QURA_DATA: number[] = [
@@ -182,7 +182,7 @@ const defaultLocalisation: CalendarLocalisation = {
   isRTL: true
 }
 
-class UmmAlQuraCalendar extends BaseCalendar {
+class UmmAlQuraCalendar extends CalendarBase {
   // Localisations for the plugin.
   // Entries are objects indexed by the language code ('' being the default US/English). */
   static localisations: RegionalLocalisations = { '': defaultLocalisation }

@@ -7,7 +7,7 @@
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 
-import Calendars, { BaseCalendar, CDate } from './Calendars'
+import Calendars, { CalendarBase, CDate } from './Calendars'
 import type { CalendarLocalisation, RegionalLocalisations } from './Calendars'
 
 const defaultLocalisation: CalendarLocalisation = {
@@ -26,7 +26,7 @@ const defaultLocalisation: CalendarLocalisation = {
   isRTL: false
 }
 
-class EthiopianCalendar extends BaseCalendar {
+class EthiopianCalendar extends CalendarBase {
   // Localisations for the plugin.
   // Entries are objects indexed by the language code ('' being the default US/English). */
   static localisations: RegionalLocalisations = { '': defaultLocalisation }

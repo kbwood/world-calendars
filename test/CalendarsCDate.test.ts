@@ -1,4 +1,4 @@
-import calendars, { BaseCalendar, CalendarError, CDate } from '../src/Calendars'
+import calendars, { CalendarBase, CalendarError, CDate } from '../src/Calendars'
 import '../src/Gregorian'
 
 describe('CDate', () => {
@@ -6,7 +6,7 @@ describe('CDate', () => {
   const d1 = new CDate(cal, 2020, 7, 2)
   const d2 = new CDate(cal, 2021, 9, 4)
 
-  const checkDate = (date: CDate, year: number, month: number, day: number, cal?: BaseCalendar) => {
+  const checkDate = (date: CDate, year: number, month: number, day: number, cal?: CalendarBase) => {
     expect(date.year()).toEqual(year)
     expect(date.month()).toEqual(month)
     expect(date.day()).toEqual(day)

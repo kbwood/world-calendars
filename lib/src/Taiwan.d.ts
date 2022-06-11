@@ -1,9 +1,9 @@
-import { BaseCalendar, CDate } from './Calendars';
+import { CalendarBase, CDate } from './Calendars';
 import './Gregorian';
 import type { RegionalLocalisations } from './Calendars';
-declare class TaiwanCalendar extends BaseCalendar {
+declare class TaiwanCalendar extends CalendarBase {
     static localisations: RegionalLocalisations;
-    static gregorian: BaseCalendar;
+    static gregorian: CalendarBase;
     static readonly yearsOffset: number;
     constructor(language?: string);
     leapYear(date: CDate): boolean;

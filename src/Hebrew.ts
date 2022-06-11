@@ -6,7 +6,7 @@
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 
-import Calendars, { BaseCalendar, CDate } from './Calendars'
+import Calendars, { CalendarBase, CDate } from './Calendars'
 import type { CalendarLocalisation, RegionalLocalisations } from './Calendars'
 
 const defaultLocalisation: CalendarLocalisation = {
@@ -27,7 +27,7 @@ const defaultLocalisation: CalendarLocalisation = {
 // Modulus function which works for non-integers.
 const mod = (a: number, b: number): number => a - (b * Math.floor(a / b))
 
-class HebrewCalendar extends BaseCalendar {
+class HebrewCalendar extends CalendarBase {
   // Localisations for the plugin.
   // Entries are objects indexed by the language code ('' being the default US/English). */
   static localisations: RegionalLocalisations = { '': defaultLocalisation }

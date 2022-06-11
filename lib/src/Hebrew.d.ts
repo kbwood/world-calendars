@@ -1,6 +1,6 @@
-import { BaseCalendar, CDate } from './Calendars';
+import { CalendarBase, CDate } from './Calendars';
 import type { RegionalLocalisations } from './Calendars';
-declare class HebrewCalendar extends BaseCalendar {
+declare class HebrewCalendar extends CalendarBase {
     static localisations: RegionalLocalisations;
     constructor(language?: string);
     leapYear(date: CDate): boolean;

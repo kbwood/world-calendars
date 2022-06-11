@@ -1,9 +1,9 @@
-import { BaseCalendar, CDate } from './Calendars';
+import { CalendarBase, CDate } from './Calendars';
 import './Gregorian';
 import type { RegionalLocalisations } from './Calendars';
-declare class NanakshahiCalendar extends BaseCalendar {
+declare class NanakshahiCalendar extends CalendarBase {
     static localisations: RegionalLocalisations;
-    static gregorian: BaseCalendar;
+    static gregorian: CalendarBase;
     constructor(language?: string);
     leapYear(date: CDate): boolean;
     leapYear(year: number): boolean;

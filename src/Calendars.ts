@@ -18,15 +18,15 @@ class CalendarError extends Error {
 
 // Generic date, based on a particular calendar.
 class CDate {
-  private cal: BaseCalendar // eslint-disable-line no-use-before-define
+  private cal: CalendarBase // eslint-disable-line no-use-before-define
   private yr: number
   private mn: number
   private dy: number
 
   // Create a new date in the given calendar.
-  constructor(calendar: BaseCalendar, date: CDate);
-  constructor(calendar: BaseCalendar, year: number, month: number, day: number);
-  constructor (calendar: BaseCalendar, yearOrDate: CDate | number, month?: number, day?: number) {
+  constructor(calendar: CalendarBase, date: CDate);
+  constructor(calendar: CalendarBase, year: number, month: number, day: number);
+  constructor (calendar: CalendarBase, yearOrDate: CDate | number, month?: number, day?: number) {
     this.cal = calendar
     if (yearOrDate instanceof CDate) {
       if (this.cal.name !== yearOrDate.calendar().name) {
@@ -57,7 +57,7 @@ class CDate {
   }
 
   // Retrieve the calendar backing this date.
-  calendar (): BaseCalendar {
+  calendar (): CalendarBase {
     return this.cal
   }
 
@@ -217,7 +217,7 @@ type ValidOptions = {
 }
 
 // Basic functionality for all calendars. Other calendars should extend this.
-abstract class BaseCalendar {
+abstract class CalendarBase {
   // The calendar name.
   readonly name: string
   // Julian day number of start of calendar epoch.
@@ -541,12 +541,12 @@ abstract class BaseCalendar {
   }
 }
 
-type CalendarClass = new(language: string) => BaseCalendar;
+type CalendarClass = new(language: string) => CalendarBase;
 type CalendarClasses = {
   [index: string]: CalendarClass,
 };
 type CalendarMap = {
-  [index: string]: BaseCalendar,
+  [index: string]: CalendarBase,
 };
 type CalendarsLocalisation = {
   alreadyRegistered: string,
@@ -571,7 +571,7 @@ class Calendars {
   private static localCals: CalendarMap = {}
 
   // Obtain a calendar implementation and localisation.
-  static instance (name: string = 'gregorian', language: string = ''): BaseCalendar {
+  static instance (name: string = 'gregorian', language: string = ''): CalendarBase {
     const calName = name.toLowerCase()
     let cal = this.localCals[`${calName}-${language}`]
     if (!cal && this.calendars[calName]) {
@@ -586,12 +586,12 @@ class Calendars {
 
   // Create a new date - for today if no other parameters given.
   static date(date?: CDate): CDate;
-  static date(year: number, month: number, day: number, calendar?: (BaseCalendar | string), language?: string): CDate;
-  static date (yearOrDate?: CDate | number, month?: number, day?: number, calendar?: (BaseCalendar | string), language?: string): CDate {
+  static date(year: number, month: number, day: number, calendar?: (CalendarBase | string), language?: string): CDate;
+  static date (yearOrDate?: CDate | number, month?: number, day?: number, calendar?: (CalendarBase | string), language?: string): CDate {
     if (yearOrDate instanceof CDate) {
       return yearOrDate.calendar().date(yearOrDate)
     }
-    const cal = (calendar instanceof BaseCalendar ? calendar : this.instance(calendar, language))
+    const cal = (calendar instanceof CalendarBase ? calendar : this.instance(calendar, language))
     return typeof yearOrDate === 'undefined' ? cal.date() : cal.date(yearOrDate, month as number, day as number)
   }
 
@@ -629,5 +629,5 @@ class Calendars {
 }
 
 export type { CalendarLocalisation, CompareResult, DateParts, Period, RegionalLocalisations, SubstituteDigits, ValidOptions }
-export { BaseCalendar, CalendarError, CDate }
+export { CalendarBase, CalendarError, CDate }
 export default Calendars

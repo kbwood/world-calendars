@@ -1,6 +1,6 @@
-import { BaseCalendar, CDate } from './Calendars';
+import { CalendarBase, CDate } from './Calendars';
 import type { DateParts, RegionalLocalisations, ValidOptions } from './Calendars';
-declare class UmmAlQuraCalendar extends BaseCalendar {
+declare class UmmAlQuraCalendar extends CalendarBase {
     static localisations: RegionalLocalisations;
     constructor(language?: string);
     leapYear(date: CDate): boolean;

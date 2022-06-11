@@ -1,4 +1,4 @@
-import calendars, { BaseCalendar, CalendarError, CDate } from '../src/Calendars'
+import calendars, { CalendarBase, CalendarError, CDate } from '../src/Calendars'
 import { GregorianCalendar } from '../src/Gregorian'
 import '../src/l10n/Gregorian-fr'
 
@@ -7,7 +7,7 @@ describe('Gregorian calendar', () => {
   const now = new Date(2022, 1 - 1, 2, 3, 4, 5, 0).getTime()
   let dateNow: jest.SpyInstance<number, []>
 
-  const checkDate = (date: CDate, year: number, month: number, day: number, cal?: BaseCalendar) => {
+  const checkDate = (date: CDate, year: number, month: number, day: number, cal?: CalendarBase) => {
     expect(date.year()).toEqual(year)
     expect(date.month()).toEqual(month)
     expect(date.day()).toEqual(day)

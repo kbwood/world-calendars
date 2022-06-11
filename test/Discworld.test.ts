@@ -1,4 +1,4 @@
-import Calendars, { BaseCalendar, CalendarError, CDate } from '../src/Calendars'
+import Calendars, { CalendarBase, CalendarError, CDate } from '../src/Calendars'
 import { DiscworldCalendar } from '../src/Discworld'
 
 describe('Discworld calendar', () => {
@@ -6,7 +6,7 @@ describe('Discworld calendar', () => {
   const now = new Date(2022, 1 - 1, 2, 3, 4, 5, 0).getTime()
   let dateNow: jest.SpyInstance<number, []>
 
-  const checkDate = (date: CDate, year: number, month: number, day: number, cal?: BaseCalendar) => {
+  const checkDate = (date: CDate, year: number, month: number, day: number, cal?: CalendarBase) => {
     expect(date.year()).toEqual(year)
     expect(date.month()).toEqual(month)
     expect(date.day()).toEqual(day)

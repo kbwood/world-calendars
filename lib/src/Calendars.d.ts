@@ -7,11 +7,11 @@ declare class CDate {
     private yr;
     private mn;
     private dy;
-    constructor(calendar: BaseCalendar, date: CDate);
-    constructor(calendar: BaseCalendar, year: number, month: number, day: number);
+    constructor(calendar: CalendarBase, date: CDate);
+    constructor(calendar: CalendarBase, year: number, month: number, day: number);
     date(): CDate;
     date(year: number, month: number, day: number): CDate;
-    calendar(): BaseCalendar;
+    calendar(): CalendarBase;
     year(value: number): CDate;
     year(): number;
     month(value: number): CDate;
@@ -39,7 +39,7 @@ declare class CDate {
     fromJSDate(jsd: Date): CDate;
     toString(): string;
 }
-declare type SubstituteDigits = (value: number) => string;
+declare type SubstituteDigits = (value: string) => string;
 declare type CalendarLocalisation = {
     dateFormat: string;
     dayNames: string[];
@@ -62,7 +62,7 @@ declare type ValidOptions = {
     notDay?: boolean;
     notMonth?: boolean;
 };
-declare abstract class BaseCalendar {
+declare abstract class CalendarBase {
     readonly name: string;
     protected readonly jdEpoch: number;
     protected readonly daysPerMonth: number[];
@@ -115,7 +115,7 @@ declare abstract class BaseCalendar {
     protected validate(error: string, date: CDate): DateParts;
     protected validate(error: string, year: number, month: number, day: number, validOptions?: ValidOptions): DateParts;
 }
-declare type CalendarClass = new (language: string) => BaseCalendar;
+declare type CalendarClass = new (language: string) => CalendarBase;
 declare type CalendarsLocalisation = {
     alreadyRegistered: string;
     differentCalendars: string;
@@ -128,13 +128,13 @@ declare class Calendars {
     static local: CalendarsLocalisation;
     private static calendars;
     private static localCals;
-    static instance(name?: string, language?: string): BaseCalendar;
+    static instance(name?: string, language?: string): CalendarBase;
     static date(date?: CDate): CDate;
-    static date(year: number, month: number, day: number, calendar?: (BaseCalendar | string), language?: string): CDate;
+    static date(year: number, month: number, day: number, calendar?: (CalendarBase | string), language?: string): CDate;
     static register(name: string, implementingClass: CalendarClass): void;
     static substituteDigits(digits: string[]): SubstituteDigits;
     static substituteChineseDigits(digits: string[], powers: string[]): SubstituteDigits;
 }
 export type { CalendarLocalisation, CompareResult, DateParts, Period, RegionalLocalisations, SubstituteDigits, ValidOptions };
-export { BaseCalendar, CalendarError, CDate };
+export { CalendarBase, CalendarError, CDate };
 export default Calendars;

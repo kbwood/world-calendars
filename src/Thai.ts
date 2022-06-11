@@ -5,7 +5,7 @@
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 
-import Calendars, { BaseCalendar, CDate } from './Calendars'
+import Calendars, { CalendarBase, CDate } from './Calendars'
 import './Gregorian'
 import type { CalendarLocalisation, RegionalLocalisations } from './Calendars'
 
@@ -24,11 +24,11 @@ const defaultLocalisation: CalendarLocalisation = {
   isRTL: false
 }
 
-class ThaiCalendar extends BaseCalendar {
+class ThaiCalendar extends CalendarBase {
   // Localisations for the plugin.
   // Entries are objects indexed by the language code ('' being the default US/English). */
   static localisations: RegionalLocalisations = { '': defaultLocalisation }
-  static gregorian: BaseCalendar = Calendars.instance('gregorian')
+  static gregorian: CalendarBase = Calendars.instance('gregorian')
   static readonly yearsOffset: number = 543
 
   constructor (language: string = '') {

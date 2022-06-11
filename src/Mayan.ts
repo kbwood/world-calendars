@@ -5,7 +5,7 @@
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 
-import Calendars, { BaseCalendar, CalendarError, CDate } from './Calendars'
+import Calendars, { CalendarBase, CalendarError, CDate } from './Calendars'
 import type { CalendarLocalisation, RegionalLocalisations } from './Calendars'
 
 const defaultLocalisation: CalendarLocalisation = {
@@ -38,7 +38,7 @@ const mod = (a: number, b: number): number => a - (b * Math.floor(a / b))
 // Modulus function which returns numerator if modulus is zero.
 const amod = (a: number, b: number): number => mod(a - 1, b) + 1
 
-class MayanCalendar extends BaseCalendar {
+class MayanCalendar extends CalendarBase {
   // Localisations for the plugin.
   // Entries are objects indexed by the language code ('' being the default US/English). */
   static localisations: RegionalLocalisations = { '': defaultLocalisation }
