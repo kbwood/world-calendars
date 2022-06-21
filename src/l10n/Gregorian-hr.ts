@@ -14,7 +14,6 @@ GregorianCalendar.localisations.hr = {
   dayNames: ['Nedjelja', 'Ponedjeljak', 'Utorak', 'Srijeda', 'Četvrtak', 'Petak', 'Subota'],
   dayNamesShort: ['Ned', 'Pon', 'Uto', 'Sri', 'Čet', 'Pet', 'Sub'],
   dayNamesMin: ['Ne', 'Po', 'Ut', 'Sr', 'Če', 'Pe', 'Su'],
-  digits: undefined,
   dateFormat: 'dd.mm.yyyy.',
   firstDay: 1,
   isRTL: false

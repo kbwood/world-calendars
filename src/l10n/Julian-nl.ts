@@ -14,7 +14,6 @@ JulianCalendar.localisations.nl = {
   dayNames: ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag'],
   dayNamesShort: ['zon', 'maa', 'din', 'woe', 'don', 'vri', 'zat'],
   dayNamesMin: ['zo', 'ma', 'di', 'wo', 'do', 'vr', 'za'],
-  digits: undefined,
   dateFormat: 'dd-mm-yyyy',
   firstDay: 1,
   isRTL: false

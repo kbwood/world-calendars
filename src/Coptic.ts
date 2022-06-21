@@ -20,7 +20,6 @@ const defaultLocalisation: CalendarLocalisation = {
   dayNames: ['Tkyriaka', 'Pesnau', 'Pshoment', 'Peftoou', 'Ptiou', 'Psoou', 'Psabbaton'],
   dayNamesShort: ['Tky', 'Pes', 'Psh', 'Pef', 'Pti', 'Pso', 'Psa'],
   dayNamesMin: ['Tk', 'Pes', 'Psh', 'Pef', 'Pt', 'Pso', 'Psa'],
-  digits: undefined,
   dateFormat: 'dd/mm/yyyy',
   firstDay: 0,
   isRTL: false
@@ -33,7 +32,7 @@ class CopticCalendar extends CalendarBase {
 
   constructor (language: string = '') {
     // Julian date of start of Coptic epoch: 29 August 284 CE (Gregorian).
-    super('Coptic', 1825029.5, CopticCalendar.localisations[language] || CopticCalendar.localisations[''],
+    super('Coptic', 1825029.5, CopticCalendar.localisations, language,
       [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 5], 13)
   }
 

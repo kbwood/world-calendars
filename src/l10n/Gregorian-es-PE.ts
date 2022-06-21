@@ -14,7 +14,6 @@ GregorianCalendar.localisations['es-PE'] = {
   dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
   dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sab'],
   dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
-  digits: undefined,
   dateFormat: 'dd/mm/yyyy',
   firstDay: 0,
   isRTL: false

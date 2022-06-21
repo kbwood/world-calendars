@@ -75,13 +75,13 @@ describe('Islamic calendar', () => {
   it('should format the year for a date', () => {
     expect(islamic.formatYear(islamic.date(1425, 1, 2))).toEqual('1425')
     expect(islamic.formatYear(islamic.date(33, 1, 2))).toEqual('0033')
-    expect(islamic.formatYear(islamic.date(-505, 1, 2))).toEqual('-0505')
+    expect(islamic.formatYear(islamic.date(-505, 1, 2))).toEqual('0505')
   })
 
   it('should format the year given a year', () => {
     expect(islamic.formatYear(1425)).toEqual('1425')
     expect(islamic.formatYear(33)).toEqual('0033')
-    expect(islamic.formatYear(-505)).toEqual('-0505')
+    expect(islamic.formatYear(-505)).toEqual('0505')
   })
 
   it('should return the number of months in the year for a date', () => {

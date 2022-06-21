@@ -12,7 +12,6 @@ NepaliCalendar.localisations.ne = {
   dayNames: ['आइतवार', 'सोमवार', 'मगलवार', 'बुधवार', 'बिहिवार', 'शुक्रवार', 'शनिवार'],
   dayNamesShort: ['आइत', 'सोम', 'मगल', 'बुध', 'बिहि', 'शुक्र', 'शनि'],
   dayNamesMin: ['आ', 'सो', 'म', 'बु', 'बि', 'शु', 'श'],
-  digits: undefined,
   dateFormat: 'dd/mm/yyyy',
   firstDay: 1,
   isRTL: false

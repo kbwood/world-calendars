@@ -80,13 +80,13 @@ describe('Gregorian calendar', () => {
   it('should format the year for a date', () => {
     expect(gregorian.formatYear(gregorian.date(2022, 1, 2))).toEqual('2022')
     expect(gregorian.formatYear(gregorian.date(33, 1, 2))).toEqual('0033')
-    expect(gregorian.formatYear(gregorian.date(-505, 1, 2))).toEqual('-0505')
+    expect(gregorian.formatYear(gregorian.date(-505, 1, 2))).toEqual('0505')
   })
 
   it('should format the year given a year', () => {
     expect(gregorian.formatYear(2022)).toEqual('2022')
     expect(gregorian.formatYear(33)).toEqual('0033')
-    expect(gregorian.formatYear(-505)).toEqual('-0505')
+    expect(gregorian.formatYear(-505)).toEqual('0505')
   })
 
   it('should return the number of months in the year for a date', () => {
@@ -314,7 +314,6 @@ describe('Gregorian calendar', () => {
       dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
       dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
       dayNamesMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-      digits: undefined,
       dateFormat: 'mm/dd/yyyy',
       firstDay: 0,
       isRTL: false
@@ -335,7 +334,6 @@ describe('Gregorian calendar', () => {
         dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
         dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
         dayNamesMin: ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa'],
-        digits: undefined,
         dateFormat: 'dd/mm/yyyy',
         firstDay: 1,
         isRTL: false

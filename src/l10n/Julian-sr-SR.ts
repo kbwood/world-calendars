@@ -13,7 +13,6 @@ JulianCalendar.localisations['sr-SR'] = {
   dayNames: ['Nedelja', 'Ponedeljak', 'Utorak', 'Sreda', 'Četvrtak', 'Petak', 'Subota'],
   dayNamesShort: ['Ned', 'Pon', 'Uto', 'Sre', 'Čet', 'Pet', 'Sub'],
   dayNamesMin: ['Ne', 'Po', 'Ut', 'Sr', 'Če', 'Pe', 'Su'],
-  digits: undefined,
   dateFormat: 'dd/mm/yyyy',
   firstDay: 1,
   isRTL: false

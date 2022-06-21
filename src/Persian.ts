@@ -21,7 +21,6 @@ const defaultLocalisation: CalendarLocalisation = {
   dayNames: ['Yekshanbe', 'Doshanbe', 'Seshanbe', 'Chaharshanbe', 'Panjshanbe', 'Jom\'e', 'Shanbe'],
   dayNamesShort: ['Yek', 'Do', 'Se', 'Chæ', 'Panj', 'Jom', 'Sha'],
   dayNamesMin: ['Ye', 'Do', 'Se', 'Ch', 'Pa', 'Jo', 'Sh'],
-  digits: undefined,
   dateFormat: 'yyyy/mm/dd',
   firstDay: 6,
   isRTL: false
@@ -34,7 +33,7 @@ class PersianCalendar extends CalendarBase {
 
   constructor (language: string = '') {
     // Julian date of start of Persian epoch: 19 March 622 CE (Gregorian).
-    super('Persian', 1948320.5, PersianCalendar.localisations[language] || PersianCalendar.localisations[''],
+    super('Persian', 1948320.5, PersianCalendar.localisations, language,
       [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29])
   }
 

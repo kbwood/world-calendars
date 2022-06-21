@@ -14,7 +14,6 @@ GregorianCalendar.localisations.fi = {
   dayNamesShort: ['Su', 'Ma', 'Ti', 'Ke', 'To', 'Pe', 'Su'],
   dayNames: ['Sunnuntai', 'Maanantai', 'Tiistai', 'Keskiviikko', 'Torstai', 'Perjantai', 'Lauantai'],
   dayNamesMin: ['Su', 'Ma', 'Ti', 'Ke', 'To', 'Pe', 'La'],
-  digits: undefined,
   dateFormat: 'dd.mm.yyyy',
   firstDay: 1,
   isRTL: false

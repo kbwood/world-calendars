@@ -75,13 +75,13 @@ describe('Taiwan calendar', () => {
   it('should format the year for a date', () => {
     expect(taiwan.formatYear(taiwan.date(85, 1, 2))).toEqual('0085')
     expect(taiwan.formatYear(taiwan.date(33, 1, 2))).toEqual('0033')
-    expect(taiwan.formatYear(taiwan.date(-505, 1, 2))).toEqual('-0505')
+    expect(taiwan.formatYear(taiwan.date(-505, 1, 2))).toEqual('0505')
   })
 
   it('should format the year given a year', () => {
     expect(taiwan.formatYear(85)).toEqual('0085')
     expect(taiwan.formatYear(33)).toEqual('0033')
-    expect(taiwan.formatYear(-505)).toEqual('-0505')
+    expect(taiwan.formatYear(-505)).toEqual('0505')
   })
 
   it('should return the number of months in the year for a date', () => {

@@ -75,13 +75,13 @@ describe('Hebrew calendar', () => {
   it('should format the year for a date', () => {
     expect(hebrew.formatYear(hebrew.date(5769, 1, 2))).toEqual('5769')
     expect(hebrew.formatYear(hebrew.date(33, 1, 2))).toEqual('0033')
-    expect(hebrew.formatYear(hebrew.date(-505, 1, 2))).toEqual('-0505')
+    expect(hebrew.formatYear(hebrew.date(-505, 1, 2))).toEqual('0505')
   })
 
   it('should format the year given a year', () => {
     expect(hebrew.formatYear(5769)).toEqual('5769')
     expect(hebrew.formatYear(33)).toEqual('0033')
-    expect(hebrew.formatYear(-505)).toEqual('-0505')
+    expect(hebrew.formatYear(-505)).toEqual('0505')
   })
 
   it('should return the number of months in the year for a date', () => {

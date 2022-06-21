@@ -21,7 +21,6 @@ const defaultLocalisation: CalendarLocalisation = {
     '10', '11', '12', '13', '14', '15', '16', '17', '18', '19'],
   dayNamesMin: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
     '10', '11', '12', '13', '14', '15', '16', '17', '18', '19'],
-  digits: undefined,
   dateFormat: 'YYYY.m.d',
   firstDay: 0,
   isRTL: false
@@ -45,8 +44,7 @@ class MayanCalendar extends CalendarBase {
 
   constructor (language: string = '') {
     // Julian date of start of Mayan epoch: 11 August 3114 BCE (Gregorian).
-    super('Mayan', 584282.5, MayanCalendar.localisations[language] || MayanCalendar.localisations[''],
-      [], 18, true, 0, 0, 0)
+    super('Mayan', 584282.5, MayanCalendar.localisations, language, [], 18, true, 0, 0, 0)
   }
 
   // Determine whether this date is in a leap year.

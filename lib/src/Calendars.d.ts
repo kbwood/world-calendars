@@ -33,6 +33,7 @@ declare class CDate {
     sub(offset: number, period: Period): CDate;
     set(value: number, period: Period): CDate;
     compareTo(date: CDate): CompareResult;
+    format(pattern?: string): string;
     toJD(): number;
     fromJD(jd: number): CDate;
     toJSDate(): Date;
@@ -45,13 +46,14 @@ declare type CalendarLocalisation = {
     dayNames: string[];
     dayNamesMin: string[];
     dayNamesShort: string[];
-    digits: SubstituteDigits | undefined;
     epochs: string[];
     firstDay: number;
     isRTL: boolean;
+    localiseDigits?: SubstituteDigits;
     monthNames: string[];
     monthNamesShort: string[];
     name: string;
+    normaliseDigits?: SubstituteDigits;
 };
 declare type DateParts = [number, number, number];
 declare type RegionalLocalisations = {
@@ -68,11 +70,11 @@ declare abstract class CalendarBase {
     protected readonly daysPerMonth: number[];
     protected readonly hasYearZero: boolean;
     protected readonly monthsPerYear: number;
-    protected readonly minMonth: number;
-    protected readonly firstMonth: number;
-    protected readonly minDay: number;
+    readonly firstMonth: number;
+    readonly minMonth: number;
+    readonly minDay: number;
     readonly local: CalendarLocalisation;
-    constructor(name: string, jdEpoch: number, local: CalendarLocalisation, daysPerMonth: number[], monthsPerYear?: number, hasYearZero?: boolean, minMonth?: number, firstMonth?: number, minDay?: number);
+    constructor(name: string, jdEpoch: number, localisations: RegionalLocalisations, language: string, daysPerMonth: number[], monthsPerYear?: number, hasYearZero?: boolean, minMonth?: number, firstMonth?: number, minDay?: number);
     date(date?: CDate): CDate;
     date(year: number, month: number, day: number): CDate;
     abstract leapYear(date: CDate): boolean;
@@ -100,6 +102,9 @@ declare abstract class CalendarBase {
     add(date: CDate, offset: number, period: Period): CDate;
     sub(date: CDate, offset: number, period: Period): CDate;
     set(date: CDate, value: number, period: Period): CDate;
+    format(date: CDate, pattern?: string): string;
+    format(year: number, month: number, day: number, pattern?: string): string;
+    parse(value: string, pattern?: string): CDate;
     isValid(year: number, month: number, day: number, { notDay, notMonth }?: ValidOptions): boolean;
     abstract toJD(date: CDate): number;
     abstract toJD(year: number, month: number, day: number): number;
@@ -132,8 +137,10 @@ declare class Calendars {
     static date(date?: CDate): CDate;
     static date(year: number, month: number, day: number, calendar?: (CalendarBase | string), language?: string): CDate;
     static register(name: string, implementingClass: CalendarClass): void;
-    static substituteDigits(digits: string[]): SubstituteDigits;
-    static substituteChineseDigits(digits: string[], powers: string[]): SubstituteDigits;
+    static localiseDigits(digits: string[]): SubstituteDigits;
+    static normaliseDigits(digits: string[]): SubstituteDigits;
+    static localiseChineseDigits(digits: string[], powers: string[]): SubstituteDigits;
+    static normaliseChineseDigits(digits: string[], powers: string[]): SubstituteDigits;
 }
 export type { CalendarLocalisation, CompareResult, DateParts, Period, RegionalLocalisations, SubstituteDigits, ValidOptions };
 export { CalendarBase, CalendarError, CDate };

@@ -12,7 +12,6 @@ GregorianCalendar.localisations['hi-IN'] = {
   dayNames: ['रविवार', 'सोमवार', 'मंगलवार', 'बुधवार', 'गुरुवार', 'शुक्रवार', 'शनिवार'],
   dayNamesShort: ['रवि', 'सोम', 'मंगल', 'बुध', 'गुरु', 'शुक्र', 'शनि'],
   dayNamesMin: ['र', 'सो', 'मं', 'बु', 'गु', 'शु', 'श'],
-  digits: undefined,
   dateFormat: 'dd/mm/yyyy',
   firstDay: 1,
   isRTL: false

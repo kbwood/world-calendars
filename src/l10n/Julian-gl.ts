@@ -14,7 +14,6 @@ JulianCalendar.localisations.gl = {
   dayNames: ['Domingo', 'Luns', 'Martes', 'Mércores', 'Xoves', 'Venres', 'Sábado'],
   dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mér', 'Xov', 'Ven', 'Sáb'],
   dayNamesMin: ['Do', 'Lu', 'Ma', 'Me', 'Xo', 'Ve', 'Sá'],
-  digits: undefined,
   dateFormat: 'dd/mm/yyyy',
   firstDay: 1,
   isRTL: false

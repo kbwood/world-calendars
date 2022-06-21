@@ -75,13 +75,13 @@ describe('Nepali calendar', () => {
   it('should format the year for a date', () => {
     expect(nepali.formatYear(nepali.date(2070, 1, 2))).toEqual('2070')
     expect(nepali.formatYear(nepali.date(33, 1, 2))).toEqual('0033')
-    expect(nepali.formatYear(nepali.date(-505, 1, 2))).toEqual('-0505')
+    expect(nepali.formatYear(nepali.date(-505, 1, 2))).toEqual('0505')
   })
 
   it('should format the year given a year', () => {
     expect(nepali.formatYear(2070)).toEqual('2070')
     expect(nepali.formatYear(33)).toEqual('0033')
-    expect(nepali.formatYear(-505)).toEqual('-0505')
+    expect(nepali.formatYear(-505)).toEqual('0505')
   })
 
   it('should return the number of months in the year for a date', () => {

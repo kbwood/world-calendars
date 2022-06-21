@@ -75,13 +75,13 @@ describe('Coptic calendar', () => {
   it('should format the year for a date', () => {
     expect(coptic.formatYear(coptic.date(1724, 1, 2))).toEqual('1724')
     expect(coptic.formatYear(coptic.date(33, 1, 2))).toEqual('0033')
-    expect(coptic.formatYear(coptic.date(-505, 1, 2))).toEqual('-0505')
+    expect(coptic.formatYear(coptic.date(-505, 1, 2))).toEqual('0505')
   })
 
   it('should format the year given a year', () => {
     expect(coptic.formatYear(1724)).toEqual('1724')
     expect(coptic.formatYear(33)).toEqual('0033')
-    expect(coptic.formatYear(-505)).toEqual('-0505')
+    expect(coptic.formatYear(-505)).toEqual('0505')
   })
 
   it('should return the number of months in the year for a date', () => {

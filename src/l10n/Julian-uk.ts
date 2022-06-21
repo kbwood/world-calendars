@@ -14,7 +14,6 @@ JulianCalendar.localisations.uk = {
   dayNames: ['неділя', 'понеділок', 'вівторок', 'середа', 'четвер', 'п\'ятниця', 'субота'],
   dayNamesShort: ['нед', 'пнд', 'вів', 'срд', 'чтв', 'птн', 'сбт'],
   dayNamesMin: ['Нд', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-  digits: undefined,
   dateFormat: 'dd/mm/yyyy',
   firstDay: 1,
   isRTL: false

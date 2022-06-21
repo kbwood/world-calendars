@@ -14,7 +14,6 @@ GregorianCalendar.localisations.ko = {
   dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
   dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
   dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-  digits: undefined,
   dateFormat: 'yyyy-mm-dd',
   firstDay: 0,
   isRTL: false

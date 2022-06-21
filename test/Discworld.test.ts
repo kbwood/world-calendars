@@ -76,13 +76,13 @@ describe('Discworld calendar', () => {
   it('should format the year for a date', () => {
     expect(discworld.formatYear(discworld.date(2015, 1, 2))).toEqual('2015')
     expect(discworld.formatYear(discworld.date(33, 1, 2))).toEqual('0033')
-    expect(discworld.formatYear(discworld.date(-505, 1, 2))).toEqual('-0505')
+    expect(discworld.formatYear(discworld.date(-505, 1, 2))).toEqual('0505')
   })
 
   it('should format the year given a year', () => {
     expect(discworld.formatYear(2015)).toEqual('2015')
     expect(discworld.formatYear(33)).toEqual('0033')
-    expect(discworld.formatYear(-505)).toEqual('-0505')
+    expect(discworld.formatYear(-505)).toEqual('0505')
   })
 
   it('should return the number of months in the year for a date', () => {

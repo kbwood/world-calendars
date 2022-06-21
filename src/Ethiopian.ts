@@ -20,7 +20,6 @@ const defaultLocalisation: CalendarLocalisation = {
   dayNames: ['Ehud', 'Segno', 'Maksegno', 'Irob', 'Hamus', 'Arb', 'Kidame'],
   dayNamesShort: ['Ehu', 'Seg', 'Mak', 'Iro', 'Ham', 'Arb', 'Kid'],
   dayNamesMin: ['Eh', 'Se', 'Ma', 'Ir', 'Ha', 'Ar', 'Ki'],
-  digits: undefined,
   dateFormat: 'dd/mm/yyyy',
   firstDay: 0,
   isRTL: false
@@ -33,7 +32,7 @@ class EthiopianCalendar extends CalendarBase {
 
   constructor (language: string = '') {
     // Julian date of start of Ethiopian epoch: 27 August 8 CE (Gregorian).
-    super('Ethiopian', 1724220.5, EthiopianCalendar.localisations[language] || EthiopianCalendar.localisations[''],
+    super('Ethiopian', 1724220.5, EthiopianCalendar.localisations, language,
       [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 5], 13)
   }
 

@@ -14,7 +14,6 @@ GregorianCalendar.localisations.eu = {
   dayNames: ['Igandea', 'Astelehena', 'Asteartea', 'Asteazkena', 'Osteguna', 'Ostirala', 'Larunbata'],
   dayNamesShort: ['Iga', 'Ast', 'Ast', 'Ast', 'Ost', 'Ost', 'Lar'],
   dayNamesMin: ['Ig', 'As', 'As', 'As', 'Os', 'Os', 'La'],
-  digits: undefined,
   dateFormat: 'yyyy/mm/dd',
   firstDay: 1,
   isRTL: false

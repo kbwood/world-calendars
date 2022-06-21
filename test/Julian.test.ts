@@ -79,13 +79,13 @@ describe('Julian calendar', () => {
   it('should format the year for a date', () => {
     expect(julian.formatYear(julian.date(2022, 1, 2))).toEqual('2022')
     expect(julian.formatYear(julian.date(33, 1, 2))).toEqual('0033')
-    expect(julian.formatYear(julian.date(-505, 1, 2))).toEqual('-0505')
+    expect(julian.formatYear(julian.date(-505, 1, 2))).toEqual('0505')
   })
 
   it('should format the year given a year', () => {
     expect(julian.formatYear(2022)).toEqual('2022')
     expect(julian.formatYear(33)).toEqual('0033')
-    expect(julian.formatYear(-505)).toEqual('-0505')
+    expect(julian.formatYear(-505)).toEqual('0505')
   })
 
   it('should return the number of months in the year for a date', () => {

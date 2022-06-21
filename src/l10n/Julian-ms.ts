@@ -14,7 +14,6 @@ JulianCalendar.localisations.ms = {
   dayNames: ['Ahad', 'Isnin', 'Selasa', 'Rabu', 'Khamis', 'Jumaat', 'Sabtu'],
   dayNamesShort: ['Aha', 'Isn', 'Sel', 'Rab', 'Kha', 'Jum', 'Sab'],
   dayNamesMin: ['Ah', 'Is', 'Se', 'Ra', 'Kh', 'Ju', 'Sa'],
-  digits: undefined,
   dateFormat: 'dd/mm/yyyy',
   firstDay: 0,
   isRTL: false

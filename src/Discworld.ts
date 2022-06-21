@@ -23,7 +23,6 @@ const defaultLocalisation: CalendarLocalisation = {
   dayNames: ['Sunday', 'Octeday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
   dayNamesShort: ['Sun', 'Oct', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
   dayNamesMin: ['Su', 'Oc', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-  digits: undefined,
   dateFormat: 'yyyy/mm/dd',
   firstDay: 2,
   isRTL: false
@@ -36,7 +35,7 @@ class DiscworldCalendar extends CalendarBase {
 
   constructor (language: string = '') {
     // Julian date of start of Discworld epoch: 1 January 0001 CE (Gregorian)
-    super('Discworld', 1721425.5, DiscworldCalendar.localisations[language] || DiscworldCalendar.localisations[''],
+    super('Discworld', 1721425.5, DiscworldCalendar.localisations, language,
       [16, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32], 13)
   }
 

@@ -14,7 +14,6 @@ JulianCalendar.localisations.sk = {
   dayNames: ['Nedel\'a', 'Pondelok', 'Utorok', 'Streda', 'Štvrtok', 'Piatok', 'Sobota'],
   dayNamesShort: ['Ned', 'Pon', 'Uto', 'Str', 'Štv', 'Pia', 'Sob'],
   dayNamesMin: ['Ne', 'Po', 'Ut', 'St', 'Št', 'Pia', 'So'],
-  digits: undefined,
   dateFormat: 'dd.mm.yyyy',
   firstDay: 0,
   isRTL: false

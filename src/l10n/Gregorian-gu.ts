@@ -5,6 +5,8 @@
 import Calendars from '../Calendars'
 import { GregorianCalendar } from '../Gregorian'
 
+const gujaratiDigits = ['૦', '૧', '૨', '૩', '૪', '૫', '૬', '૭', '૮', '૯']
+
 GregorianCalendar.localisations.gu = {
   name: 'Gregorian',
   epochs: ['BCE', 'CE'],
@@ -15,8 +17,9 @@ GregorianCalendar.localisations.gu = {
   dayNames: ['રવિવાર', 'સોમવાર', 'મંગળવાર', 'બુધવાર', 'ગુરુવાર', 'શુક્રવાર', 'શનિવાર'],
   dayNamesShort: ['રવિ', 'સોમ', 'મંગળ', 'બુધ', 'ગુરુ', 'શુક્ર', 'શનિ'],
   dayNamesMin: ['ર', 'સો', 'મં', 'બુ', 'ગુ', 'શુ', 'શ'],
-  digits: Calendars.substituteDigits(['૦', '૧', '૨', '૩', '૪', '૫', '૬', '૭', '૮', '૯']),
   dateFormat: 'dd-M-yyyy',
   firstDay: 1,
-  isRTL: false
+  isRTL: false,
+  localiseDigits: Calendars.localiseDigits(gujaratiDigits),
+  normaliseDigits: Calendars.normaliseDigits(gujaratiDigits)
 }

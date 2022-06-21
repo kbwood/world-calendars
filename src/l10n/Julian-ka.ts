@@ -14,7 +14,6 @@ JulianCalendar.localisations.ka = {
   dayNames: ['კვირა', 'ორშაბათი', 'სამშაბათი', 'ოთხშაბათი', 'ხუთშაბათი', 'პარასკევი', 'შაბათი'],
   dayNamesShort: ['კვ', 'ორშ', 'სამ', 'ოთხ', 'ხუთ', 'პარ', 'შაბ'],
   dayNamesMin: ['კვ', 'ორ', 'სმ', 'ოთ', 'ხშ', 'პრ', 'შბ'],
-  digits: undefined,
   dateFormat: 'dd/mm/yyyy',
   firstDay: 1,
   isRTL: false

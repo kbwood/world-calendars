@@ -13,7 +13,6 @@ JulianCalendar.localisations['ar-DZ'] = {
   dayNames: ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
   dayNamesShort: ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
   dayNamesMin: ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
-  digits: undefined,
   dateFormat: 'dd/mm/yyyy',
   firstDay: 6,
   isRTL: true

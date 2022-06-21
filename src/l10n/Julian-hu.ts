@@ -14,7 +14,6 @@ JulianCalendar.localisations.hu = {
   dayNames: ['Vasárnap', 'Hétfö', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat'],
   dayNamesShort: ['Vas', 'Hét', 'Ked', 'Sze', 'Csü', 'Pén', 'Szo'],
   dayNamesMin: ['V', 'H', 'K', 'Sze', 'Cs', 'P', 'Szo'],
-  digits: undefined,
   dateFormat: 'yyyy-mm-dd',
   firstDay: 1,
   isRTL: false

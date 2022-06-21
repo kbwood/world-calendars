@@ -14,7 +14,6 @@ JulianCalendar.localisations.cs = {
   dayNames: ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'],
   dayNamesShort: ['ne', 'po', 'út', 'st', 'čt', 'pá', 'so'],
   dayNamesMin: ['ne', 'po', 'út', 'st', 'čt', 'pá', 'so'],
-  digits: undefined,
   dateFormat: 'dd.mm.yyyy',
   firstDay: 1,
   isRTL: false

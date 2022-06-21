@@ -18,7 +18,6 @@ const defaultLocalisation: CalendarLocalisation = {
   dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
   dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
   dayNamesMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-  digits: undefined,
   dateFormat: 'dd/mm/yyyy',
   firstDay: 0,
   isRTL: false
@@ -33,7 +32,7 @@ class ThaiCalendar extends CalendarBase {
 
   constructor (language: string = '') {
     // Julian date of start of Thai epoch: 1 January 543 BCE (Gregorian)
-    super('Thai', 1523098.5, ThaiCalendar.localisations[language] || ThaiCalendar.localisations[''],
+    super('Thai', 1523098.5, ThaiCalendar.localisations, language,
       [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31])
   }
 

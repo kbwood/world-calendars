@@ -18,7 +18,6 @@ const defaultLocalisation: CalendarLocalisation = {
   dayNames: ['Somvaar', 'Mangalvar', 'Budhvaar', 'Veervaar', 'Shukarvaar', 'Sanicharvaar', 'Etvaar'],
   dayNamesShort: ['Som', 'Mangal', 'Budh', 'Veer', 'Shukar', 'Sanichar', 'Et'],
   dayNamesMin: ['So', 'Ma', 'Bu', 'Ve', 'Sh', 'Sa', 'Et'],
-  digits: undefined,
   dateFormat: 'dd-mm-yyyy',
   firstDay: 0,
   isRTL: false
@@ -32,7 +31,7 @@ class NanakshahiCalendar extends CalendarBase {
 
   constructor (language: string = '') {
     // Julian date of start of Nanakshahi epoch: 14 March 1469 CE (Gregorian).
-    super('Nanakshahi', 2257673.5, NanakshahiCalendar.localisations[language] || NanakshahiCalendar.localisations[''],
+    super('Nanakshahi', 2257673.5, NanakshahiCalendar.localisations, language,
       [31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 30, 30])
   }
 

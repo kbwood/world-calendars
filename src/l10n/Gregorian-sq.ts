@@ -14,7 +14,6 @@ GregorianCalendar.localisations.sq = {
   dayNames: ['E Diel', 'E Hënë', 'E Martë', 'E Mërkurë', 'E Enjte', 'E Premte', 'E Shtune'],
   dayNamesShort: ['Di', 'Hë', 'Ma', 'Më', 'En', 'Pr', 'Sh'],
   dayNamesMin: ['Di', 'Hë', 'Ma', 'Më', 'En', 'Pr', 'Sh'],
-  digits: undefined,
   dateFormat: 'dd.mm.yyyy',
   firstDay: 1,
   isRTL: false

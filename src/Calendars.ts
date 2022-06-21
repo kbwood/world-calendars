@@ -166,6 +166,11 @@ class CDate {
     return c < 0 ? -1 : c > 0 ? +1 : 0
   }
 
+  // Format this date.
+  format (pattern?: string): string {
+    return this.cal.format(this, pattern)
+  }
+
   // Retrieve the Julian day number equivalent for this date, i.e. days since January 1, 4713 BCE Greenwich noon.
   toJD (): number {
     return this.cal.toJD(this)
@@ -198,13 +203,14 @@ type CalendarLocalisation = {
   dayNames: string[],
   dayNamesMin: string[],
   dayNamesShort: string[],
-  digits: SubstituteDigits | undefined,
   epochs: string[],
   firstDay: number,
   isRTL: boolean,
+  localiseDigits?: SubstituteDigits,
   monthNames: string[],
   monthNamesShort: string[],
   name: string,
+  normaliseDigits?: SubstituteDigits,
 };
 type DateParts = [number, number, number];
 type RegionalLocalisations = {
@@ -228,17 +234,18 @@ abstract class CalendarBase {
   protected readonly hasYearZero: boolean
   // The number of months in the year.
   protected readonly monthsPerYear: number
-  // The minimum month number.
-  protected readonly minMonth: number
   // The first month in the year.
-  protected readonly firstMonth: number
+  readonly firstMonth: number
+  // The minimum month number.
+  readonly minMonth: number
   // The minimum day number.
-  protected readonly minDay: number
+  readonly minDay: number
   // The current localisation in use.
   readonly local: CalendarLocalisation
 
-  constructor (name: string, jdEpoch: number, local: CalendarLocalisation, daysPerMonth: number[],
-    monthsPerYear: number = 12, hasYearZero: boolean = false, minMonth: number = 1, firstMonth: number = 1, minDay: number = 1) {
+  constructor (name: string, jdEpoch: number, localisations: RegionalLocalisations, language: string,
+    daysPerMonth: number[], monthsPerYear: number = 12, hasYearZero: boolean = false,
+    minMonth: number = 1, firstMonth: number = 1, minDay: number = 1) {
     this.name = name
     this.jdEpoch = jdEpoch
     this.daysPerMonth = daysPerMonth
@@ -247,7 +254,11 @@ abstract class CalendarBase {
     this.minMonth = minMonth
     this.firstMonth = firstMonth
     this.minDay = minDay
-    this.local = local
+    const local = localisations[language]
+    if (!local) {
+      console.warn(`WARNING: Gregorian localisation ${language} not found, using default`)
+    }
+    this.local = local || localisations['']
   }
 
   // Create a new date within this calendar - today if no parameters given.
@@ -282,7 +293,7 @@ abstract class CalendarBase {
     const [y] = yearOrDate instanceof CDate
       ? this.validate('', yearOrDate)
       : this.validate(Calendars.local.invalidYear, yearOrDate, this.minMonth, this.minDay)
-    return (y < 0 ? '-' : '') + pad(Math.abs(y), 4)
+    return pad(Math.abs(y), 4)
   }
 
   // Retrieve the number of months in a year.
@@ -401,6 +412,20 @@ abstract class CalendarBase {
       d = Math.min(d, this.daysInMonth(y, m))
     }
     return date.date(y, m, d)
+  }
+
+  // Format a date - see ParseFormat module.
+  format (date: CDate, pattern?: string): string;
+  format (year: number, month: number, day: number, pattern?: string): string;
+  // @ts-ignore: parameters aren't used - implemented elsewhere
+  format (yearOrDate: CDate | number, monthOrPattern: string | number | undefined, day?: number, pattern?: string): string {
+    throw new CalendarError('Not implemented yet - load the ParseFormat module')
+  }
+
+  // Parse a date - see ParseFormat module.
+  // @ts-ignore: parameters aren't used - implemented elsewhere
+  parse (value: string, pattern: string = ''): CDate {
+    throw new CalendarError('Not implemented yet - load the ParseFormat module')
   }
 
   // Determine whether a date is valid for this calendar.
@@ -604,14 +629,21 @@ class Calendars {
     this.calendars[calName] = implementingClass
   }
 
-  // A simple digit substitution function for localising numbers via the Calendar digits option.
-  static substituteDigits (digits: string[]): SubstituteDigits {
+  // A simple digit substitution function for localising numbers via the Calendar localiseDigits option.
+  static localiseDigits (digits: string[]): SubstituteDigits {
     return (value: string): string =>
-      value.replace(/[0-9]/g, (digit: string): string => digits[Number(digit)])
+      value.replace(/[0-9]/g, (match: string): string => digits[Number(match)])
   }
 
-  // Digit substitution function for localising Chinese style numbers via the Calendar digits option.
-  static substituteChineseDigits (digits: string[], powers: string[]): SubstituteDigits {
+  // A simple digit substitution function for restoring numbers via the Calendar localiseDigits option.
+  static normaliseDigits (digits: string[]): SubstituteDigits {
+    const re = new RegExp(`[${digits.join('')}]`, 'g')
+    return (value: string): string =>
+      value.replace(re, (match: string): string => `${digits.indexOf(match)}`)
+  }
+
+  // Digit substitution function for localising Chinese style numbers via the Calendar normaliseDigits option.
+  static localiseChineseDigits (digits: string[], powers: string[]): SubstituteDigits {
     return (value: string): string => {
       let localNumber = ''
       let power = 0
@@ -625,6 +657,35 @@ class Calendars {
       }
       return localNumber || digits[0]
     }
+  }
+
+  // Digit substitution function for restoring Chinese style numbers via the Calendar normaliseDigits option.
+  static normaliseChineseDigits (digits: string[], powers: string[]): SubstituteDigits {
+    const charsRe = new RegExp(`[${powers.join('')}${digits.join('')}]+`, 'g')
+    return (value: string): string =>
+      value.replace(charsRe, (match: string): string => {
+        let normNumber = 0
+        let digit = -1
+        let power = 0
+        let index = 0
+        const updateNumber = (): void => {
+          if (digit !== -1) {
+            normNumber += digit * (power === -1 ? 1 : Math.pow(10, power))
+          } else if (power === 1) {
+          // Tens value not needed if value 10-19
+            normNumber += 10
+            power = 0
+          }
+        }
+        while (index < match.length) {
+          power = powers.indexOf(match[index])
+          updateNumber()
+          digit = digits.indexOf(match[index])
+          index++
+        }
+        updateNumber()
+        return `${normNumber}`
+      })
   }
 }
 

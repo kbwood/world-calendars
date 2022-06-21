@@ -14,7 +14,6 @@ GregorianCalendar.localisations['ar-EG'] = {
   dayNames: ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
   dayNamesShort: ['أحد', 'اثنين', 'ثلاثاء', 'أربعاء', 'خميس', 'جمعة', 'سبت'],
   dayNamesMin: ['أحد', 'اثنين', 'ثلاثاء', 'أربعاء', 'خميس', 'جمعة', 'سبت'],
-  digits: undefined,
   dateFormat: 'dd/mm/yyyy',
   firstDay: 6,
   isRTL: true

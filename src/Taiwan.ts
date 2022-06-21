@@ -18,7 +18,6 @@ const defaultLocalisation: CalendarLocalisation = {
   dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
   dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
   dayNamesMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-  digits: undefined,
   dateFormat: 'yyyy/mm/dd',
   firstDay: 1,
   isRTL: false
@@ -33,7 +32,7 @@ class TaiwanCalendar extends CalendarBase {
 
   constructor (language: string = '') {
     // Julian date of start of Taiwan epoch: 1 January 1912 CE (Gregorian)
-    super('Taiwan', 2419402.5, TaiwanCalendar.localisations[language] || TaiwanCalendar.localisations[''],
+    super('Taiwan', 2419402.5, TaiwanCalendar.localisations, language,
       [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31])
   }
 

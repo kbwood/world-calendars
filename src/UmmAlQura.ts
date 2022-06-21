@@ -176,7 +176,6 @@ const defaultLocalisation: CalendarLocalisation = {
   dayNames: ['Yawm al-Ahad', 'Yawm al-Ithnain', 'Yawm al-Thalāthā’', 'Yawm al-Arba‘ā’', 'Yawm al-Khamīs', 'Yawm al-Jum‘a', 'Yawm al-Sabt'],
   dayNamesShort: ['Ahd', 'Ith', 'Thu', 'Arb', 'Khm', 'Jum', 'Sbt'],
   dayNamesMin: ['Ah', 'Ith', 'Th', 'Ar', 'Kh', 'Ju', 'Sa'],
-  digits: undefined,
   dateFormat: 'yyyy/mm/dd',
   firstDay: 6,
   isRTL: true
@@ -189,8 +188,7 @@ class UmmAlQuraCalendar extends CalendarBase {
 
   constructor (language: string = '') {
     // Julian date of start of Umm al-Qura epoch: 14 March 1937 CE (Gregorian).
-    super('UmmAlQura', 1948440.5, UmmAlQuraCalendar.localisations[language] || UmmAlQuraCalendar.localisations[''],
-      [])
+    super('UmmAlQura', 1948440.5, UmmAlQuraCalendar.localisations, language, [])
   }
 
   // Determine whether this date is in a leap year.

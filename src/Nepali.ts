@@ -164,7 +164,6 @@ const defaultLocalisation: CalendarLocalisation = {
   dayNames: ['Aaitabaar', 'Sombaar', 'Manglbaar', 'Budhabaar', 'Bihibaar', 'Shukrabaar', 'Shanibaar'],
   dayNamesShort: ['Aaita', 'Som', 'Mangl', 'Budha', 'Bihi', 'Shukra', 'Shani'],
   dayNamesMin: ['Aai', 'So', 'Man', 'Bu', 'Bi', 'Shu', 'Sha'],
-  digits: undefined,
   dateFormat: 'dd/mm/yyyy',
   firstDay: 1,
   isRTL: false
@@ -179,7 +178,7 @@ class NepaliCalendar extends CalendarBase {
 
   constructor (language: string = '') {
     // Julian date of start of Nepali epoch: 14 April 57 BCE (Gregorian).
-    super('Nepali', 1700709.5, NepaliCalendar.localisations[language] || NepaliCalendar.localisations[''],
+    super('Nepali', 1700709.5, NepaliCalendar.localisations, language,
       [31, 31, 32, 32, 31, 30, 30, 29, 30, 29, 30, 30])
   }
 

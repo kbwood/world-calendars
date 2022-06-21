@@ -18,7 +18,6 @@ const defaultLocalisation: CalendarLocalisation = {
   dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
   dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
   dayNamesMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-  digits: undefined,
   dateFormat: 'mm/dd/yyyy',
   firstDay: 0,
   isRTL: false
@@ -31,7 +30,7 @@ class GregorianCalendar extends CalendarBase {
 
   constructor (language: string = '') {
     // Julian date of start of Gregorian epoch: 1 January 0001 CE (Gregorian).
-    super('Gregorian', 1721425.5, GregorianCalendar.localisations[language] || GregorianCalendar.localisations[''],
+    super('Gregorian', 1721425.5, GregorianCalendar.localisations, language,
       [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31])
   }
 

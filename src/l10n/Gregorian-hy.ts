@@ -14,7 +14,6 @@ GregorianCalendar.localisations.hy = {
   dayNames: ['կիրակի', 'եկուշաբթի', 'երեքշաբթի', 'չորեքշաբթի', 'հինգշաբթի', 'ուրբաթ', 'շաբաթ'],
   dayNamesShort: ['կիր', 'երկ', 'երք', 'չրք', 'հնգ', 'ուրբ', 'շբթ'],
   dayNamesMin: ['կիր', 'երկ', 'երք', 'չրք', 'հնգ', 'ուրբ', 'շբթ'],
-  digits: undefined,
   dateFormat: 'dd.mm.yyyy',
   firstDay: 1,
   isRTL: false

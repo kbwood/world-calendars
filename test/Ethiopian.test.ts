@@ -75,13 +75,13 @@ describe('Ethiopian calendar', () => {
   it('should format the year for a date', () => {
     expect(ethiopian.formatYear(ethiopian.date(2014, 1, 2))).toEqual('2014')
     expect(ethiopian.formatYear(ethiopian.date(33, 1, 2))).toEqual('0033')
-    expect(ethiopian.formatYear(ethiopian.date(-505, 1, 2))).toEqual('-0505')
+    expect(ethiopian.formatYear(ethiopian.date(-505, 1, 2))).toEqual('0505')
   })
 
   it('should format the year given a year', () => {
     expect(ethiopian.formatYear(2014)).toEqual('2014')
     expect(ethiopian.formatYear(33)).toEqual('0033')
-    expect(ethiopian.formatYear(-505)).toEqual('-0505')
+    expect(ethiopian.formatYear(-505)).toEqual('0505')
   })
 
   it('should return the number of months in the year for a date', () => {

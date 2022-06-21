@@ -14,7 +14,6 @@ GregorianCalendar.localisations.pl = {
   dayNames: ['Niedziela', 'Poniedzialek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota'],
   dayNamesShort: ['Nie', 'Pn', 'Wt', 'Śr', 'Czw', 'Pt', 'So'],
   dayNamesMin: ['N', 'Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'So'],
-  digits: undefined,
   dateFormat: 'yyyy-mm-dd',
   firstDay: 1,
   isRTL: false

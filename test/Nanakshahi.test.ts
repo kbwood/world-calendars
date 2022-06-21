@@ -75,13 +75,13 @@ describe('Nanakshahi calendar', () => {
   it('should format the year for a date', () => {
     expect(nanakshahi.formatYear(nanakshahi.date(546, 1, 2))).toEqual('0546')
     expect(nanakshahi.formatYear(nanakshahi.date(33, 1, 2))).toEqual('0033')
-    expect(nanakshahi.formatYear(nanakshahi.date(-505, 1, 2))).toEqual('-0505')
+    expect(nanakshahi.formatYear(nanakshahi.date(-505, 1, 2))).toEqual('0505')
   })
 
   it('should format the year given a year', () => {
     expect(nanakshahi.formatYear(546)).toEqual('0546')
     expect(nanakshahi.formatYear(33)).toEqual('0033')
-    expect(nanakshahi.formatYear(-505)).toEqual('-0505')
+    expect(nanakshahi.formatYear(-505)).toEqual('0505')
   })
 
   it('should return the number of months in the year for a date', () => {

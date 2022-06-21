@@ -2,7 +2,11 @@
    Traditional Chinese localisation for Taiwanese calendars.
    Written by Ressol (ressol@gmail.com). */
 
+import Calendars from '../Calendars'
 import { TaiwanCalendar } from '../Taiwan'
+
+const chineseDigits = ['〇', '一', '二', '三', '四', '五', '六', '七', '八', '九']
+const chinesePowers = ['', '十', '百', '千']
 
 TaiwanCalendar.localisations['zh-TW'] = {
   name: 'Taiwan',
@@ -14,8 +18,9 @@ TaiwanCalendar.localisations['zh-TW'] = {
   dayNames: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
   dayNamesShort: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
   dayNamesMin: ['日', '一', '二', '三', '四', '五', '六'],
-  digits: undefined,
   dateFormat: 'yyyy/mm/dd',
   firstDay: 1,
-  isRTL: false
+  isRTL: false,
+  localiseDigits: Calendars.localiseChineseDigits(chineseDigits, chinesePowers),
+  normaliseDigits: Calendars.normaliseChineseDigits(chineseDigits, chinesePowers)
 }

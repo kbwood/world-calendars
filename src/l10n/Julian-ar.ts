@@ -8,6 +8,8 @@
 import Calendars from '../Calendars'
 import { JulianCalendar } from '../Julian'
 
+const arabicDigits = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩']
+
 JulianCalendar.localisations.ar = {
   name: 'Julian',
   epochs: ['BCE', 'CE'],
@@ -17,8 +19,9 @@ JulianCalendar.localisations.ar = {
   dayNames: ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
   dayNamesShort: 'أحد_إثنين_ثلاثاء_أربعاء_خميس_جمعة_سبت'.split('_'),
   dayNamesMin: 'ح_ن_ث_ر_خ_ج_س'.split('_'),
-  digits: Calendars.substituteDigits(['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩']),
   dateFormat: 'dd/mm/yyyy',
   firstDay: 1,
-  isRTL: true
+  isRTL: true,
+  localiseDigits: Calendars.localiseDigits(arabicDigits),
+  normaliseDigits: Calendars.normaliseDigits(arabicDigits)
 }

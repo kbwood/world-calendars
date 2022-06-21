@@ -5,6 +5,8 @@
 import Calendars from '../Calendars'
 import { NanakshahiCalendar } from '../Nanakshahi'
 
+const punjabiDigits = ['੦', '੧', '੨', '੩', '੪', '੫', '੬', '੭', '੮', '੯']
+
 NanakshahiCalendar.localisations.pa = {
   name: 'Nanakshahi',
   epochs: ['BN', 'AN'],
@@ -13,8 +15,9 @@ NanakshahiCalendar.localisations.pa = {
   dayNames: ['ਐਤਵਾਰ', 'ਸੋਮਵਾਰ', 'ਮੰਗਲਵਾਰ', 'ਬੁੱਧਵਾਰ', 'ਵੀਰਵਾਰ', 'ਸ਼ੁੱਕਰਵਾਰ', 'ਸ਼ਨਿੱਚਰਵਾਰ'],
   dayNamesShort: ['ਐਤ', 'ਸੋਮ', 'ਮੰਗਲ', 'ਬੁੱਧ', 'ਵੀਰ', 'ਸ਼ੁੱਕਰ', 'ਸ਼ਨਿੱਚਰ'],
   dayNamesMin: ['ਐ', 'ਸੋ', 'ਮੰ', 'ਬੁੱ', 'ਵੀ', 'ਸ਼ੁੱ', 'ਸ਼'],
-  digits: Calendars.substituteDigits(['੦', '੧', '੨', '੩', '੪', '੫', '੬', '੭', '੮', '੯']),
   dateFormat: 'dd-mm-yyyy',
   firstDay: 0,
-  isRTL: false
+  isRTL: false,
+  localiseDigits: Calendars.localiseDigits(punjabiDigits),
+  normaliseDigits: Calendars.normaliseDigits(punjabiDigits)
 }

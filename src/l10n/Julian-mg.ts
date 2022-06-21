@@ -14,7 +14,6 @@ JulianCalendar.localisations.mg = {
   dayNames: ['Alahady', 'Alatsinainy', 'Talata', 'Alarobia', 'Alakamisy', 'Zoma', 'Sabotsy'],
   dayNamesShort: ['Alah', 'Alat', 'Tal', 'Alar', 'Alak', 'Zom', 'Sab'],
   dayNamesMin: ['Ah', 'At', 'Ta', 'Ar', 'Ak', 'Zo', 'Sa'],
-  digits: undefined,
   dateFormat: 'dd/mm/yyyy',
   firstDay: 1,
   isRTL: false

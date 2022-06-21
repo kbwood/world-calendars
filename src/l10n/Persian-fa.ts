@@ -5,6 +5,8 @@
 import Calendars from '../Calendars'
 import { PersianCalendar } from '../Persian'
 
+const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹']
+
 PersianCalendar.localisations.fa = {
   name: 'Persian',
   epochs: ['BP', 'AP'],
@@ -15,8 +17,9 @@ PersianCalendar.localisations.fa = {
   dayNames: ['يک شنبه', 'دوشنبه', 'سه شنبه', 'چهار شنبه', 'پنج شنبه', 'جمعه', 'شنبه'],
   dayNamesShort: ['يک', 'دو', 'سه', 'چهار', 'پنج', 'جمعه', 'شنبه'],
   dayNamesMin: ['ي', 'د', 'س', 'چ', 'پ', 'ج', 'ش'],
-  digits: Calendars.substituteDigits(['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹']),
   dateFormat: 'yyyy/mm/dd',
   firstDay: 6,
-  isRTL: true
+  isRTL: true,
+  localiseDigits: Calendars.localiseDigits(farsiDigits),
+  normaliseDigits: Calendars.normaliseDigits(farsiDigits)
 }

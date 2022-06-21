@@ -18,7 +18,6 @@ const defaultLocalisation: CalendarLocalisation = {
   dayNames: ['Yom Rishon', 'Yom Sheni', 'Yom Shlishi', 'Yom Revi\'i', 'Yom Chamishi', 'Yom Shishi', 'Yom Shabbat'],
   dayNamesShort: ['Ris', 'She', 'Shl', 'Rev', 'Cha', 'Shi', 'Sha'],
   dayNamesMin: ['Ri', 'She', 'Shl', 'Re', 'Ch', 'Shi', 'Sha'],
-  digits: undefined,
   dateFormat: 'dd/mm/yyyy',
   firstDay: 0,
   isRTL: false
@@ -34,7 +33,7 @@ class HebrewCalendar extends CalendarBase {
 
   constructor (language: string = '') {
     // Julian date of start of Hebrew epoch: 7 October 3761 BCE (Gregorian).
-    super('Hebrew', 347995.5, HebrewCalendar.localisations[language] || HebrewCalendar.localisations[''],
+    super('Hebrew', 347995.5, HebrewCalendar.localisations, language,
       [30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 29], 12, false, 1, 7, 1)
   }
 

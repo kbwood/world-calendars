@@ -19,7 +19,6 @@ const defaultLocalisation: CalendarLocalisation = {
     'Yawm al-arbi\'aa\'', 'Yawm al-khamīs', 'Yawm al-jum\'a', 'Yawm as-sabt'],
   dayNamesShort: ['Aha', 'Ith', 'Thu', 'Arb', 'Kha', 'Jum', 'Sab'],
   dayNamesMin: ['Ah', 'It', 'Th', 'Ar', 'Kh', 'Ju', 'Sa'],
-  digits: undefined,
   dateFormat: 'yyyy/mm/dd',
   firstDay: 6,
   isRTL: false
@@ -32,7 +31,7 @@ class IslamicCalendar extends CalendarBase {
 
   constructor (language: string = '') {
     // Julian date of start of Islamic epoch: 16 July 622 CE (Gregorian).
-    super('Islamic', 1948439.5, IslamicCalendar.localisations[language] || IslamicCalendar.localisations[''],
+    super('Islamic', 1948439.5, IslamicCalendar.localisations, language,
       [30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29])
   }
 

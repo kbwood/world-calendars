@@ -14,7 +14,6 @@ JulianCalendar.localisations.az = {
   dayNames: ['Bazar', 'Bazar ertəsi', 'Çərşənbə axşamı', 'Çərşənbə', 'Cümə axşamı', 'Cümə', 'Şənbə'],
   dayNamesShort: ['B', 'Be', 'Ça', 'Ç', 'Ca', 'C', 'Ş'],
   dayNamesMin: ['B', 'B', 'Ç', 'С', 'Ç', 'C', 'Ş'],
-  digits: undefined,
   dateFormat: 'dd.mm.yyyy',
   firstDay: 1,
   isRTL: false
