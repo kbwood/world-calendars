@@ -1,0 +1,13 @@
+declare const ATOM = "yyyy-mm-dd";
+declare const COOKIE = "D, dd M yyyy";
+declare const FULL = "DD, MM d, yyyy";
+declare const ISO_8601 = "yyyy-mm-dd";
+declare const JULIAN = "J";
+declare const RFC_822 = "D, d M yy";
+declare const RFC_850 = "DD, dd-M-yy";
+declare const RFC_1036 = "D, d M yy";
+declare const RFC_1123 = "D, d M yyyy";
+declare const RFC_2822 = "D, d M yyyy";
+declare const RSS = "D, d M yy";
+declare const W3C = "yyyy-mm-dd";
+export { ATOM, COOKIE, FULL, ISO_8601, JULIAN, RFC_822, RFC_850, RFC_1036, RFC_1123, RFC_2822, RSS, W3C };
