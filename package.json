@@ -1,5 +1,5 @@
 {
-  "name": "worldCalendars",
+  "name": "world-calendars",
   "version": "0.9.0",
   "description": "Implementations of calendars from around the world",
   "main": "lib/Calendars.js",
@@ -42,6 +42,7 @@
     "type": "git",
     "url": "https://github.com/kbwood/worldCalendars.git"
   },
+  "files": ["lib/**/*"],
   "devDependencies": {
     "@babel/cli": "^7.15.7",
     "@babel/core": "^7.15.8",
