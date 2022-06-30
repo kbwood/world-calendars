@@ -23,7 +23,7 @@ Calendars currently implemented are:
 ### Installation
 
 ```
-npm install kbwood/worldCalendars --save
+npm install @kbwood/world-calendars --save
 ```
 
 ### Access
@@ -31,8 +31,8 @@ npm install kbwood/worldCalendars --save
 Import the library base code and a calendar implementation.
 
 ```
-import Calendars from 'kbwood/worldCalendars/Calendars'
-import 'kbwood/worldCalendars/Gregorian'
+import Calendars from '@kbwood/world-calendars/Calendars'
+import '@kbwood/world-calendars/Gregorian'
 ```
 
 Use the `Calendars` object to access the calendar implementations.
