@@ -6,7 +6,7 @@
    and http://birenj2ee.blogspot.com/2011/04/nepali-calendar-in-java.html.
    See also http://en.wikipedia.org/wiki/Nepali_calendar
    and https://en.wikipedia.org/wiki/Bikram_Samwat.
-   Converted by Keith Wood (wood.keith{at}optusnet.com.au) May 2022.
+   Converted by Keith Wood (kbwood.au{at}gmail.com) May 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 

@@ -3,7 +3,7 @@
    See http://en.wikipedia.org/wiki/Ethiopian_calendar.
    See also Calendrical Calculations: The Millennium Edition
    (http://emr.cs.iit.edu/home/reingold/calendar-book/index.shtml).
-   Written by Keith Wood (wood.keith{at}optusnet.com.au) May 2022.
+   Written by Keith Wood (kbwood.au{at}gmail.com) May 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 

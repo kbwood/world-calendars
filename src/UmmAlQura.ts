@@ -3,7 +3,7 @@
    See also http://en.wikipedia.org/wiki/Islamic_calendar#Saudi_Arabia.27s_Umm_al-Qura_calendar,
    http://www.ummulqura.org.sa/About.aspx,
    http://www.staff.science.uu.nl/~gent0113/islam/ummalqura.htm.
-   Written by Keith Wood (wood.keith{at}optusnet.com.au) May 2022.
+   Written by Keith Wood (kbwood.au{at}gmail.com) May 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 

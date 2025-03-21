@@ -2,7 +2,7 @@
    Implementation of the Islamic or '16 civil' calendar.
    Based on code from http://www.iranchamber.com/calendar/converter/iranian_calendar_converter.php.
    See also http://en.wikipedia.org/wiki/Islamic_calendar.
-   Written by Keith Wood (wood.keith{at}optusnet.com.au) May 2022.
+   Written by Keith Wood (kbwood.au{at}gmail.com) May 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 

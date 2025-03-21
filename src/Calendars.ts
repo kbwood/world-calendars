@@ -1,6 +1,6 @@
 /* http://keith-wood.name/worldCalendars.html
    Implementations of various world calendars.
-   Written by Keith Wood (wood.keith{at}optusnet.com.au) April 2022.
+   Written by Keith Wood (kbwood.au{at}gmail.com) April 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 

@@ -2,7 +2,7 @@
    Implementation of the Proleptic Gregorian Calendar.
    See http://en.wikipedia.org/wiki/Gregoriancalendar
    and http://en.wikipedia.org/wiki/Proleptic_Gregoriancalendar.
-   Written by Keith Wood (wood.keith{at}optusnet.com.au) April 2022.
+   Written by Keith Wood (kbwood.au{at}gmail.com) April 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 

@@ -2,7 +2,7 @@
    Implementation of the Persian or Jalali calendar.
    Based on code from http://www.iranchamber.com/calendar/converter/iranian_calendar_converter.php.
    See also http://en.wikipedia.org/wiki/Iranian_calendar.
-   Written by Keith Wood (wood.keith{at}optusnet.com.au) April 2022.
+   Written by Keith Wood (kbwood.au{at}gmail.com) April 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 

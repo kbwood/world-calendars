@@ -1,7 +1,7 @@
 /* http://keith-wood.name/worldCalendars.html
    Implementation of the Mayan Long Count calendar.
    See also http://en.wikipedia.org/wiki/Mayan_calendar.
-   Written by Keith Wood (wood.keith{at}optusnet.com.au) May 2022.
+   Written by Keith Wood (kbwood.au{at}gmail.com) May 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 
@@ -127,7 +127,7 @@ class MayanCalendar extends CalendarBase {
     const [y, m, d] = yearOrDate instanceof CDate // eslint-disable-line no-unused-vars
       ? this.validate('', yearOrDate)
       : this.validate(Calendars.local.invalidDate, yearOrDate, month as number, day as number)
-    return d
+    return d % 5
   }
 
   // Determine whether this date is a week day.

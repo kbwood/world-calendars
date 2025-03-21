@@ -1,7 +1,7 @@
 /* http://keith-wood.name/worldCalendars.html
    Implementation of the Nanakshahi calendar.
    See also https://en.wikipedia.org/wiki/Nanakshahi_calendar.
-   Written by Keith Wood (wood.keith{at}optusnet.com.au) May 2022.
+   Written by Keith Wood (kbwood.au{at}gmail.com) May 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 

@@ -1,5 +1,5 @@
-declare type CompareResult = -1 | 0 | 1;
-declare type Period = 'd' | 'm' | 'w' | 'y';
+type CompareResult = -1 | 0 | 1;
+type Period = 'd' | 'm' | 'w' | 'y';
 declare class CalendarError extends Error {
 }
 declare class CDate {
@@ -40,8 +40,8 @@ declare class CDate {
     fromJSDate(jsd: Date): CDate;
     toString(): string;
 }
-declare type SubstituteDigits = (value: string) => string;
-declare type CalendarLocalisation = {
+type SubstituteDigits = (value: string) => string;
+type CalendarLocalisation = {
     dateFormat: string;
     dayNames: string[];
     dayNamesMin: string[];
@@ -55,12 +55,12 @@ declare type CalendarLocalisation = {
     name: string;
     normaliseDigits?: SubstituteDigits;
 };
-declare type DateParts = [number, number, number];
-declare type RegionalLocalisations = {
+type DateParts = [number, number, number];
+type RegionalLocalisations = {
     '': CalendarLocalisation;
     [index: string]: CalendarLocalisation | undefined;
 };
-declare type ValidOptions = {
+type ValidOptions = {
     notDay?: boolean;
     notMonth?: boolean;
 };
@@ -120,8 +120,8 @@ declare abstract class CalendarBase {
     protected validate(error: string, date: CDate): DateParts;
     protected validate(error: string, year: number, month: number, day: number, validOptions?: ValidOptions): DateParts;
 }
-declare type CalendarClass = new (language: string) => CalendarBase;
-declare type CalendarsLocalisation = {
+type CalendarClass = new (language: string) => CalendarBase;
+type CalendarsLocalisation = {
     alreadyRegistered: string;
     differentCalendars: string;
     invalidCalendar: string;

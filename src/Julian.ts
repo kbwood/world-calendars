@@ -2,7 +2,7 @@
    Implementation of the Julian calendar.
    Based on code from http://www.fourmilab.ch/documents/calendar/.
    See also http://en.wikipedia.org/wiki/Julian_calendar.
-   Written by Keith Wood (wood.keith{at}optusnet.com.au) April 2022.
+   Written by Keith Wood (kbwood.au{at}gmail.com) April 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 

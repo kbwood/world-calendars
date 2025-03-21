@@ -190,14 +190,14 @@ describe('Mayan calendar', () => {
 
   it('should return the day of the week for a date', () => {
     expect(mayan.dayOfWeek(mayan.date(5195, 1, 2))).toEqual(2)
-    expect(mayan.dayOfWeek(mayan.date(5195, 7, 5))).toEqual(5)
-    expect(mayan.dayOfWeek(mayan.date(5195, 12, 13))).toEqual(13)
+    expect(mayan.dayOfWeek(mayan.date(5195, 7, 5))).toEqual(0)
+    expect(mayan.dayOfWeek(mayan.date(5195, 12, 13))).toEqual(3)
   })
 
   it('should return the day of the week given a year, month and day', () => {
     expect(mayan.dayOfWeek(5195, 1, 2)).toEqual(2)
-    expect(mayan.dayOfWeek(5195, 7, 5)).toEqual(5)
-    expect(mayan.dayOfWeek(5195, 12, 13)).toEqual(13)
+    expect(mayan.dayOfWeek(5195, 7, 5)).toEqual(0)
+    expect(mayan.dayOfWeek(5195, 12, 13)).toEqual(3)
   })
 
   it('should indicate if the day is a week day for a date', () => {

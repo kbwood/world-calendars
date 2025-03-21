@@ -2,7 +2,7 @@
    Implementation of the Discworld calendar - Unseen University version.
    See also http://wiki.lspace.org/mediawiki/Discworld_calendar
    and http://discworld.wikia.com/wiki/Discworld_calendar.
-   Written by Keith Wood (wood.keith{at}optusnet.com.au) May 2022.
+   Written by Keith Wood (kbwood.au{at}gmail.com) May 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 
