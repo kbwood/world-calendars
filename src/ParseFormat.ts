@@ -1,6 +1,6 @@
 /* http://keith-wood.name/calendars.html
    Calendars parsing and formatting.
-   Written by Keith Wood (wood.keith{at}optusnet.com.au) June 2022.
+   Written by Keith Wood (kbwood.au{at}gmail.com) June 2022.
    Available under the MIT (http://keith-wood.name/licence.html) license.
    Please attribute the author if you use it. */
 
@@ -202,10 +202,10 @@ const parseDate = function (cal: CalendarBase, value: string, pattern: string = 
     iValue++
   }
   let epoch = 1
-  let year = Number.NEGATIVE_INFINITY
-  let month = -1
-  let day = -1
-  let doy = -1
+  let year = NaN
+  let month = NaN
+  let day = NaN
+  let doy = NaN
   let literal = false
   for (iPattern = 0; iPattern < pattern.length; iPattern++) {
     if (literal) {
@@ -240,7 +240,7 @@ const parseDate = function (cal: CalendarBase, value: string, pattern: string = 
   if (iValue < value.length) {
     throw new CalendarError(errorMessages.unexpectedText)
   }
-  if (year === Number.NEGATIVE_INFINITY) {
+  if (isNaN(year)) {
     year = cal.date().year()
   }
   if (year < 100 && shortYear) {
@@ -249,7 +249,7 @@ const parseDate = function (cal: CalendarBase, value: string, pattern: string = 
   if (epoch === 0) {
     year = -year
   }
-  if (doy > -1) {
+  if (!isNaN(doy)) {
     month = cal.firstMonth
     day = doy
     for (let dim = cal.daysInMonth(year, month); day > dim; dim = cal.daysInMonth(year, month)) {
