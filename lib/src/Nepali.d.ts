@@ -1,6 +1,6 @@
 import { CalendarBase, CDate } from './Calendars';
 import './Gregorian';
-import type { RegionalLocalisations } from './Calendars';
+import type { DateParts, RegionalLocalisations, ValidOptions } from './Calendars';
 declare class NepaliCalendar extends CalendarBase {
     static localisations: RegionalLocalisations;
     static gregorian: CalendarBase;
@@ -16,6 +16,7 @@ declare class NepaliCalendar extends CalendarBase {
     toJD(date: CDate): number;
     toJD(year: number, month: number, day: number): number;
     fromJD(jd: number): CDate;
-    private createMissingCalendarData;
+    protected validate(error: string, date: CDate): DateParts;
+    protected validate(error: string, year: number, month: number, day: number, validOptions?: ValidOptions): DateParts;
 }
 export { NepaliCalendar };

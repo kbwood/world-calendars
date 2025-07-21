@@ -8,6 +8,7 @@ Calendars currently implemented are:
 * Ethiopian
 * Gregorian
 * Hebrew
+* Iranian
 * Islamic
 * Julian
 * Mayan

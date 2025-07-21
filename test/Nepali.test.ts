@@ -30,18 +30,20 @@ describe('Nepali calendar', () => {
   it('should create a new date', () => {
     const date1 = nepali.date(2070, 4, 32)
     const date2 = nepali.date(date1)
-    const date3 = nepali.date()
 
     checkDate(date1, 2070, 4, 32, nepali)
     expect(date2).toEqual(date1)
     expect(date2).not.toBe(date1)
-    checkDate(date3, 2078, 9, 18, nepali)
+    checkDate(nepali.date(), 2078, 9, 18, nepali)
+    checkDate(nepali.date(1659, 1, 1), 1659, 1, 1, nepali)
+    checkDate(nepali.date(2100, 12, 30), 2100, 12, 30, nepali)
   })
 
   it('should not create a new date when invalid', () => {
-    expect(() => { nepali.date(2070, 22, 52) }).toThrow(new CalendarError('Invalid Nepali date'))
+    expect(() => { nepali.date(2070, 22, 2) }).toThrow(new CalendarError('Invalid Nepali date'))
     expect(() => { nepali.date(2070, 2, 32) }).toThrow(new CalendarError('Invalid Nepali date'))
-    expect(() => { nepali.date(0, 2, 12) }).toThrow(new CalendarError('Invalid Nepali date'))
+    expect(() => { nepali.date(1658, 12, 29) }).toThrow(new CalendarError('Invalid Nepali year'))
+    expect(() => { nepali.date(2101, 1, 1) }).toThrow(new CalendarError('Invalid Nepali year'))
   })
 
   it('should indicate leap years for a date', () => {
@@ -62,38 +64,32 @@ describe('Nepali calendar', () => {
 
   it('should return the epoch for a date', () => {
     expect(nepali.epoch(nepali.date(2022, 1, 2))).toEqual('ABS')
-    expect(nepali.epoch(nepali.date(33, 1, 2))).toEqual('ABS')
-    expect(nepali.epoch(nepali.date(-505, 1, 2))).toEqual('BBS')
+    expect(nepali.epoch(nepali.date(1699, 1, 2))).toEqual('ABS')
   })
 
   it('should return the epoch given a year', () => {
     expect(nepali.epoch(2022)).toEqual('ABS')
-    expect(nepali.epoch(33)).toEqual('ABS')
-    expect(nepali.epoch(-505)).toEqual('BBS')
+    expect(nepali.epoch(1699)).toEqual('ABS')
   })
 
   it('should format the year for a date', () => {
     expect(nepali.formatYear(nepali.date(2070, 1, 2))).toEqual('2070')
-    expect(nepali.formatYear(nepali.date(33, 1, 2))).toEqual('0033')
-    expect(nepali.formatYear(nepali.date(-505, 1, 2))).toEqual('0505')
+    expect(nepali.formatYear(nepali.date(1699, 1, 2))).toEqual('1699')
   })
 
   it('should format the year given a year', () => {
     expect(nepali.formatYear(2070)).toEqual('2070')
-    expect(nepali.formatYear(33)).toEqual('0033')
-    expect(nepali.formatYear(-505)).toEqual('0505')
+    expect(nepali.formatYear(1699)).toEqual('1699')
   })
 
   it('should return the number of months in the year for a date', () => {
     expect(nepali.monthsInYear(nepali.date(2070, 1, 2))).toEqual(12)
-    expect(nepali.monthsInYear(nepali.date(33, 1, 2))).toEqual(12)
-    expect(nepali.monthsInYear(nepali.date(-505, 1, 2))).toEqual(12)
+    expect(nepali.monthsInYear(nepali.date(1699, 1, 2))).toEqual(12)
   })
 
   it('should return the number of months in the year given a year', () => {
     expect(nepali.monthsInYear(2070)).toEqual(12)
-    expect(nepali.monthsInYear(33)).toEqual(12)
-    expect(nepali.monthsInYear(-505)).toEqual(12)
+    expect(nepali.monthsInYear(1699)).toEqual(12)
   })
 
   it('should return the month of the year for a date', () => {
@@ -240,54 +236,40 @@ describe('Nepali calendar', () => {
     checkDate(d, 2069, 12, 31)
   })
 
-  it('should add to/subtract from a date between epochs', () => {
-    let d = nepali.date(-1, 12, 29)
-    d = nepali.add(d, 1, 'y')
-    checkDate(d, 1, 12, 29)
-    d = nepali.sub(d, 1, 'y')
-    checkDate(d, -1, 12, 29)
-    d = nepali.add(d, 2, 'm')
-    checkDate(d, 1, 2, 29)
-    d = nepali.sub(d, 2, 'm')
-    checkDate(d, -1, 12, 29)
-    d = nepali.add(d, 5, 'd')
-    checkDate(d, 1, 1, 4)
-    d = nepali.sub(d, 5, 'd')
-    checkDate(d, -1, 12, 29)
-  })
-
   it('should convert a date to a Julian day number', () => {
-    expect(nepali.date(1956, 11, 23).toJD()).toEqual(2415085.5)
+    expect(nepali.date(1956, 11, 23).toJD()).toEqual(2415083.5)
     expect(nepali.date(2070, 8, 12).toJD()).toEqual(2456623.5)
     expect(nepali.date(2072, 1, 2).toJD()).toEqual(2457127.5)
   })
 
   it('should convert year/month/day to a Julian day number', () => {
-    expect(nepali.toJD(1956, 11, 23)).toEqual(2415085.5)
+    expect(nepali.toJD(1956, 11, 23)).toEqual(2415083.5)
     expect(nepali.toJD(2070, 8, 12)).toEqual(2456623.5)
     expect(nepali.toJD(2072, 1, 2)).toEqual(2457127.5)
   })
 
   it('should convert from a Julian day number', () => {
-    checkDate(nepali.fromJD(2415085.5), 1956, 11, 23)
+    checkDate(nepali.fromJD(2415083.5), 1956, 11, 23)
     checkDate(nepali.fromJD(2456623.5), 2070, 8, 12)
     checkDate(nepali.fromJD(2457127.5), 2072, 1, 2)
+    expect(() => { nepali.fromJD(2305900.5) }).toThrow(new CalendarError('Invalid Nepali year'))
+    expect(() => { nepali.fromJD(2467720.5) }).toThrow(new CalendarError('Invalid Nepali year'))
   })
 
   it('should convert a date to a JavaScript date', () => {
-    expect(nepali.date(1956, 11, 23).toJSDate()).toEqual(new Date(1900, 3 - 1, 7))
+    expect(nepali.date(1956, 11, 23).toJSDate()).toEqual(new Date(1900, 3 - 1, 5))
     expect(nepali.date(2070, 8, 12).toJSDate()).toEqual(new Date(2013, 11 - 1, 27))
     expect(nepali.date(2072, 1, 2).toJSDate()).toEqual(new Date(2015, 4 - 1, 15))
   })
 
   it('should convert year/month/day to a JavaScript date', () => {
-    expect(nepali.toJSDate(1956, 11, 23)).toEqual(new Date(1900, 3 - 1, 7))
+    expect(nepali.toJSDate(1956, 11, 23)).toEqual(new Date(1900, 3 - 1, 5))
     expect(nepali.toJSDate(2070, 8, 12)).toEqual(new Date(2013, 11 - 1, 27))
     expect(nepali.toJSDate(2072, 1, 2)).toEqual(new Date(2015, 4 - 1, 15))
   })
 
   it('should convert from a JavaScript date', () => {
-    checkDate(nepali.fromJSDate(new Date(1900, 3 - 1, 7)), 1956, 11, 23)
+    checkDate(nepali.fromJSDate(new Date(1900, 3 - 1, 5)), 1956, 11, 23)
     checkDate(nepali.fromJSDate(new Date(2013, 11 - 1, 27)), 2070, 8, 12)
     checkDate(nepali.fromJSDate(new Date(2015, 4 - 1, 15)), 2072, 1, 2)
   })
